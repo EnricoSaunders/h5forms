@@ -1,0 +1,40 @@
+body{
+
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(187, 187, 187)),color-stop(1, rgb(238, 238, 238)));
+	background-image: -o-linear-gradient(top, rgb(187, 187, 187) 0%, rgb(238, 238, 238) 100%);
+	background-image: -moz-linear-gradient(top, rgb(187, 187, 187) 0%, rgb(238, 238, 238) 100%);
+	background-image: -webkit-linear-gradient(top, rgb(187, 187, 187) 0%, rgb(238, 238, 238) 100%);
+	background-image: -ms-linear-gradient(top, rgb(187, 187, 187) 0%, rgb(238, 238, 238) 100%);
+	background: linear-gradient(to top, rgb(187, 187, 187) 0%, rgb(238, 238, 238) 100%) no-repeat center center fixed; 
+}
+#h5forms-logo
+{
+	float:left;
+	width: 200px;
+	height: 29px;
+	background: url(../images/H5Forms_sprite.png) top left;
+	margin:10px 0 0 10px;
+}
+#h5forms-logo:hover
+{
+	background-position: bottom left;
+}
+footer
+{
+	position:absolute;
+	left:0px;
+	bottom:10px;
+	width:100%;
+}
+#h5forms-logo-white
+{
+	text-align:center;
+	width: 200px;
+	height: 29px;
+	background: url(../images/H5Forms_sprite.png) top right;
+	margin:0px auto 0px auto;
+}
+#h5forms-logo-white:hover
+{
+	background-position: bottom right;
+}				
