@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{86A3F4
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H5Forms.Infrastructure", "H5Forms.Infrastructure\H5Forms.Infrastructure.csproj", "{50B037E6-339D-4935-968B-43F4F1E66BF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{E200F846-05F4-45D3-8B8D-D66336A60468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E200F846-05F4-45D3-8B8D-D66336A60468}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E200F846-05F4-45D3-8B8D-D66336A60468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B037E6-339D-4935-968B-43F4F1E66BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B037E6-339D-4935-968B-43F4F1E66BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B037E6-339D-4935-968B-43F4F1E66BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B037E6-339D-4935-968B-43F4F1E66BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{98D62934-F206-4D60-A4CB-05B1AC7EF744} = {15EFB619-FEB8-49C8-BC72-4CC9371BCB75}
 		{E200F846-05F4-45D3-8B8D-D66336A60468} = {DB7E3334-E72E-4CA6-8B6E-476000B921EA}
 		{6498CBD2-C1E9-4541-A47D-7D3734730D7A} = {52B73672-48EE-413A-BBEE-96449E3DF742}
+		{50B037E6-339D-4935-968B-43F4F1E66BF9} = {52B73672-48EE-413A-BBEE-96449E3DF742}
 	EndGlobalSection
 EndGlobal

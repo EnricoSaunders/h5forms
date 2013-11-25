@@ -43,24 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form\Controls\Control.cs" />
-    <Compile Include="Form\Controls\CheckList.cs" />
-    <Compile Include="Form\Controls\DropDown.cs" />
-    <Compile Include="Form\Controls\Label.cs" />
-    <Compile Include="Form\Controls\RadioList.cs" />
-    <Compile Include="Form\Controls\TextBox.cs" />
-    <Compile Include="Form\Controls\ControlType.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Form\Form.cs" />
     <Compile Include="Form\FormEntry.cs" />
-    <Compile Include="Form\ValidationRules\Length.cs" />
-    <Compile Include="Form\ValidationRules\Required.cs" />
     <Compile Include="Interfaces\IH5FormsContext.cs" />
-    <Compile Include="Form\Controls\OptionsControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Form\ValidationRules\ValidationRule.cs" />
-    <Compile Include="Form\Controls\ValueControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
