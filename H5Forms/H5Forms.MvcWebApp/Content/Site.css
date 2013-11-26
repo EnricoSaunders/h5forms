@@ -38,4 +38,14 @@ div{ display: block;}
 .form-view .control:hover {
     border: 1px solid #cccccc;
 }
-
+.form-view  .control .delete-control {
+    background: url(images/remove.png);  
+    float: right;
+    width: 16px;
+    height: 16px;
+    display: none;
+    cursor: pointer;
+}
+.form-view .control:hover .delete-control {
+    display: inline-block;
+}

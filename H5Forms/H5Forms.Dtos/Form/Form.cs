@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using H5Forms.Dtos.Common;
 using H5Forms.Dtos.Form.Controls;
 using Newtonsoft.Json;
 
@@ -45,6 +46,18 @@ namespace H5Forms.Dtos.Form
             }
 
             return result;
+        }
+
+        public int DeleteControl(int controlId)
+        {
+            var control = Controls.SingleOrDefault(c => c.Id == controlId);
+
+            if (control == null)
+                throw new ValidationException(Resource.InvalidControl);
+
+            Controls.Remove(control);
+
+            return controlId;
         }
     }
 }

@@ -15,6 +15,13 @@
                            url: '/Forms/AddControl',
                            data: { controlType: controlType }
                        });
+                   },
+                   deleteControl: function (controlId) {
+                       return $http({
+                           method: 'POST',
+                           url: '/Forms/DeleteControl',
+                           data: { controlId: controlId }
+                       });
                    }
                };                                                        
        }]);

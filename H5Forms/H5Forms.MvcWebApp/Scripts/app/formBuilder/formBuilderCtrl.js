@@ -19,6 +19,16 @@
 
                };
                
+               $scope.deleteControl = function (control) {
+                   formService.deleteControl(control.id).then(function (response) {
+                       var index = $scope.form.controls.indexOf(control);
+                       $scope.form.controls.splice(index, 1);
+                       $scope.currentControl = null;
+                       $scope.controlPropertiesTemplate = null;
+                   }, function () { throw 'Error on deleteControl'; });
+
+               };
+               
                $scope.setcurrentControl = function(control) {
                    $scope.currentControl = control;
                    $scope.controlPropertiesTemplate = 'Forms/ControlProperties/' + control.controlType + 'Properties.cshtml';

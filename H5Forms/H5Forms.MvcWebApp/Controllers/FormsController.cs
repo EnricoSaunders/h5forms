@@ -57,6 +57,30 @@ namespace H5Forms.MvcWebApp.Controllers
             return this.JsonNet(response);
         }
 
+        [HttpPost]
+        public ActionResult DeleteControl(int controlId)
+        {
+            var response = new Response<int> { Result = new Result() { HasErrors = false, Messages = new List<string>() } };
+
+            try
+            {
+                response.Data = H5FormSession.Current.Form.DeleteControl(controlId);
+                _formAdmin.UpdateForm(H5FormSession.Current.Form);
+            }
+            catch (ValidationException ex)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(ex.Message);
+            }
+            catch (Exception)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(Resource.GeneralError);
+            }
+
+            return this.JsonNet(response);
+        }
+
 
 
     }
