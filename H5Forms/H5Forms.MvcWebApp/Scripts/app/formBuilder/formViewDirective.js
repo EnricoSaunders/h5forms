@@ -23,8 +23,9 @@
                        
                         this.removeControlScope = function(controlScope) {
                             var index = $scope.controlScopes.indexOf(controlScope);
+                            
                             if ( index !== -1 ) {
-                                $scope.controlScopes.splice($scope.controlScopes.indexOf(controlScope), 1);
+                                $scope.controlScopes.splice(index, 1);
                             }
                         };
 
@@ -43,6 +44,6 @@
                 templateUrl: 'Forms/Controls/control.cshtml',
                 link: function (scope, element, attrs, formViewCtrl) {
                     formViewCtrl.addControlScope(scope);
-                },
+                }
             };
         }]);

@@ -271,6 +271,7 @@
     <Content Include="Scripts\app\formBuilder\formBuilderModule.js" />
     <Content Include="Scripts\app\formBuilder\formService.js" />
     <Content Include="Scripts\app\formBuilder\formViewDirective.js" />
+    <Content Include="Scripts\app\formBuilder\tabsDirective.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -308,6 +309,8 @@
     <None Include="Views\Forms\Controls\textBox.cshtml" />
     <None Include="Views\Forms\Controls\control.cshtml" />
     <None Include="Views\Forms\Controls\formView.cshtml" />
+    <Content Include="Views\Shared\Templates\tabs.cshtml" />
+    <Content Include="Views\Shared\Templates\pane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
