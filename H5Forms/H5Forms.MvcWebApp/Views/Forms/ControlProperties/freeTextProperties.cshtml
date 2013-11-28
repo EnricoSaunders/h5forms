@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    <h4>Free Text properties</h4>
+    
+    <label>Text</label>
+    <textarea ng-model="currentControl.text"></textarea>
+    
+    <div>
+        <label>Font size: </label>
+        <input type="number" min="1" ng-model="currentControl.properties.fontSize" />
+    </div>      
+    <div>
+        <label>Color: </label>
+        <input type="color"  ng-model="currentControl.properties.color" />
+    </div> 
+    <div>
+        <label>Strong: </label>
+        <input type="checkbox" ng-model="currentControl.properties.strong" />
+    </div> 
+</div>

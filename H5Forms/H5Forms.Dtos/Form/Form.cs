@@ -34,8 +34,18 @@ namespace H5Forms.Dtos.Form
                 case ControlType.DropDown:
                     result = new DropDown{ControlType = ControlType.DropDown, Label = "Label", Options = new List<string>()};
                     break;
-                case ControlType.Label:
-                    result = new Label { ControlType = ControlType.Label, Text = "Label"};
+                case ControlType.FreeText:
+                    result = new FreeText
+                    {
+                        ControlType = ControlType.FreeText,
+                        Text = "Some text",
+                        Properties = new Properties
+                        {
+                            FontSize = 12,
+                            Color = "#000000",
+                            Strong = false
+                        }
+                    };
                     break;
                 case ControlType.TextBox:
                     result = new TextBox { ControlType = ControlType.TextBox, Label = "Label" };

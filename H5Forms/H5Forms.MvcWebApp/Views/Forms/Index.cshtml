@@ -18,16 +18,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Designer</h3>
-                    </div>                   
-                    <div class="panel-body" >                      
-                        <form-view title="form.title">
+                <tabs>
+                    <pane title="Preview">
+                        <div>Preview!</div>
+                    </pane>
+                    <pane title="Designer" selected = "true">
+                        <form-view title="form.title" mode="design">
                             <control ng-repeat="control in form.controls"></control>
-                        </form-view>                          
-                    </div>
-                </div>
+                        </form-view>
+                    </pane>                   
+                </tabs>  
             </div>
             <div class="col-md-3">
                 <div class="panel panel-warning">
@@ -50,4 +50,5 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/app/formBuilder/formBuilderCtrl.js")"> </script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/app/formBuilder/formService.js")"> </script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/app/formBuilder/formViewDirective.js")"> </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/shared/tabsDirective.js")"> </script>
 }

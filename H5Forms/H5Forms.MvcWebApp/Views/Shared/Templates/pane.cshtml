@@ -1,7 +1,4 @@
 ﻿@{
     Layout = null;
 }
-<div class="control" ng-click="setcurrentControl(control)">
-    <div ng-include="'Forms/Controls/' + control.controlType +'.cshtml'"></div>
-    <span class="delete-control" ng-click="deleteControl(control)"></span>
-</div>
+<div ng-transclude ng-show="selected"></div>

@@ -1,7 +1,10 @@
 ﻿@{
     Layout = null;
 }
-<div class="control" ng-click="setcurrentControl(control)">
-    <div ng-include="'Forms/Controls/' + control.controlType +'.cshtml'"></div>
-    <span class="delete-control" ng-click="deleteControl(control)"></span>
-</div>
+
+<ul class="nav nav-tabs">
+    <li ng-repeat="pane in panes" ng-class="{active: pane.selected}">
+        <a href="" ng-click="setActivePane(pane)">{{pane.title}}</a>
+    </li>
+</ul>
+<div ng-transclude></div>

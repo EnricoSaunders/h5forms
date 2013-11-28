@@ -1,6 +1,6 @@
 ﻿namespace H5Forms.Dtos.Form.Controls
 {
-    public class RadioList : OptionsControls
+    public class RadioList : OptionsControl
     {
     }
 }

@@ -4,12 +4,7 @@ html {
     padding: 0;
 }
 body {    
-    border-top: solid 10px #000;
-    color: #333;
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
+   
 }
 div{ display: block;}
 
@@ -45,7 +40,8 @@ div{ display: block;}
     height: 16px;
     display: none;
     cursor: pointer;
+    
 }
 .form-view .control:hover .delete-control {
-    display: inline-block;
+    display: inline-block;    
 }

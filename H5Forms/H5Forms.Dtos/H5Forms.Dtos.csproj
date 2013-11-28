@@ -50,8 +50,9 @@
     <Compile Include="Form\Controls\Control.cs" />
     <Compile Include="Form\Controls\ControlType.cs" />
     <Compile Include="Form\Controls\DropDown.cs" />
-    <Compile Include="Form\Controls\Label.cs" />
+    <Compile Include="Form\Controls\FreeText.cs" />
     <Compile Include="Form\Controls\OptionsControls.cs" />
+    <Compile Include="Form\Controls\Properties.cs" />
     <Compile Include="Form\Controls\RadioList.cs" />
     <Compile Include="Form\Controls\TextBox.cs" />
     <Compile Include="Form\Controls\ValueControl.cs" />

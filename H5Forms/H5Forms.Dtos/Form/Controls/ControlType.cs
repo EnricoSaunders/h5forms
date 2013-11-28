@@ -2,7 +2,7 @@
 {
     public enum  ControlType
     {
-        Label = 1,
+        FreeText = 1,
         TextBox,
         TextBoxMultiLine,        
         DropDown,        
