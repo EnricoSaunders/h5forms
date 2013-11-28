@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using H5Forms.Dtos.Common;
 using H5Forms.Dtos.Form;
 using H5Forms.Dtos.Form.Controls;
+using H5Forms.Dtos.Form.ValidationRules;
 using H5Forms.Infrastructure;
 using H5Forms.MvcWebApp.Models;
 
@@ -24,15 +25,15 @@ namespace H5Forms.MvcWebApp.Controllers
 
             if (H5FormSession.Current.Form == null)
             {
-                H5FormSession.Current.Form = _formAdmin.AddForm("Test");
+                H5FormSession.Current.Form = new Form();
             }
         }
         public ActionResult Index()
         {           
             return View();
         }
-       
-        [HttpGet]
+
+        #region Controls
         public ActionResult GetControlTypes()
         {
             return this.JsonNet(_formAdmin.GetControlTypes());
@@ -46,7 +47,7 @@ namespace H5Forms.MvcWebApp.Controllers
             try
             {
                 response.Data = H5FormSession.Current.Form.AddControl(controlType);
-                _formAdmin.UpdateForm(H5FormSession.Current.Form);
+                //_formAdmin.UpdateForm(H5FormSession.Current.Form);
             }           
             catch (Exception)
             {
@@ -65,7 +66,7 @@ namespace H5Forms.MvcWebApp.Controllers
             try
             {
                 response.Data = H5FormSession.Current.Form.DeleteControl(controlId);
-                _formAdmin.UpdateForm(H5FormSession.Current.Form);
+             //   _formAdmin.UpdateForm(H5FormSession.Current.Form);
             }
             catch (ValidationException ex)
             {
@@ -81,7 +82,52 @@ namespace H5Forms.MvcWebApp.Controllers
             return this.JsonNet(response);
         }
 
+        #endregion
 
+        //#region ValidationRules
+
+        //[HttpPost]
+        //public ActionResult AddValidationRule(int controlId, ValidationType validationType)
+        //{
+        //    var response = new Response<ValidationRule> { Result = new Result() { HasErrors = false, Messages = new List<string>() } };
+
+        //    try
+        //    {
+        //        response.Data = H5FormSession.Current.Form.AddValidationRule(controlId, validationType);                
+        //    }
+        //    catch (Exception)
+        //    {
+        //        response.Result.HasErrors = true;
+        //        response.Result.Messages.Add(Resource.GeneralError);
+        //    }
+
+        //    return this.JsonNet(response);
+        //}
+
+        //[HttpPost]
+        //public ActionResult DeleteValidationRule(int controlId,  ValidationType validationType)
+        //{
+        //    var response = new Response<int> { Result = new Result() { HasErrors = false, Messages = new List<string>() } };
+
+        //    try
+        //    {
+        //        response.Data = H5FormSession.Current.Form.DeleteValidationRule(controlId, validationType);               
+        //    }
+        //    catch (ValidationException ex)
+        //    {
+        //        response.Result.HasErrors = true;
+        //        response.Result.Messages.Add(ex.Message);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        response.Result.HasErrors = true;
+        //        response.Result.Messages.Add(Resource.GeneralError);
+        //    }
+
+        //    return this.JsonNet(response);
+        //}
+
+        //#endregion
 
     }
 }

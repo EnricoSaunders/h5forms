@@ -5,4 +5,12 @@
     <h4>TextBox properties</h4>
     <label>Label</label>
     <input type="text" ng-model="currentControl.label" />
+    <div>
+        <label>Size</label>
+        <input type="number" min="10" ng-model="currentControl.size" />
+    </div>
+    <div>
+        <label>Required</label>
+        <input type="checkbox" ng-click="addRequiredValidation(currentControl)" />
+    </div>
 </div>

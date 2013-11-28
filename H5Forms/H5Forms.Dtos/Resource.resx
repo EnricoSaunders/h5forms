@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="InvalidControl" xml:space="preserve">
-    <value>Control doesn't exist</value>
+    <value>Control  doesn't exist</value>
+  </data>
+  <data name="InvalidControlType" xml:space="preserve">
+    <value>Control type  doesn't exist</value>
+  </data>
+  <data name="InvalidValidationType" xml:space="preserve">
+    <value>Validation type doesn't exist</value>
+  </data>
+  <data name="LengthDefaultMessage" xml:space="preserve">
+    <value>The value must be in the described range</value>
+  </data>
+  <data name="RequiredDefaultMessage" xml:space="preserve">
+    <value>This field is required</value>
   </data>
 </root>

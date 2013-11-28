@@ -57,6 +57,7 @@
     <Compile Include="Form\Controls\TextBox.cs" />
     <Compile Include="Form\Controls\ValueControl.cs" />
     <Compile Include="Form\Form.cs" />
+    <Compile Include="Form\ValidationRules\ValidationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>

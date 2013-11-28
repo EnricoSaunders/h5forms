@@ -2,5 +2,6 @@
 {
     public class TextBox: ValueControl
     {
+        public int Size { get; set; }
     }
 }

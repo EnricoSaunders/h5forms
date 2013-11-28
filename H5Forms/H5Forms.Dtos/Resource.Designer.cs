@@ -61,11 +61,47 @@ namespace H5Forms.Dtos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control doesn&apos;t exist.
+        ///   Looks up a localized string similar to Control  doesn&apos;t exist.
         /// </summary>
         internal static string InvalidControl {
             get {
                 return ResourceManager.GetString("InvalidControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control type  doesn&apos;t exist.
+        /// </summary>
+        internal static string InvalidControlType {
+            get {
+                return ResourceManager.GetString("InvalidControlType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation type doesn&apos;t exist.
+        /// </summary>
+        internal static string InvalidValidationType {
+            get {
+                return ResourceManager.GetString("InvalidValidationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value must be in the described range.
+        /// </summary>
+        internal static string LengthDefaultMessage {
+            get {
+                return ResourceManager.GetString("LengthDefaultMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This field is required.
+        /// </summary>
+        internal static string RequiredDefaultMessage {
+            get {
+                return ResourceManager.GetString("RequiredDefaultMessage", resourceCulture);
             }
         }
     }
