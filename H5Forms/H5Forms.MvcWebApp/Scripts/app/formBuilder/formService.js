@@ -3,25 +3,18 @@
            '$http',           
            function ($http) {
                return {                                      
-                   getControlTypes: function () {
+                   getTypes: function () {
                        return $http({
                            method: 'GET',
-                           url: '/Forms/GetControlTypes'
+                           url: '/Forms/GetTypes'
                        });                       
                    },
-                   addControl: function(controlType) {
+                   createControl: function (controlType) {
                        return $http({
                            method: 'POST',
-                           url: '/Forms/AddControl',
+                           url: '/Forms/CreateControl',
                            data: { controlType: controlType }
                        });
-                   },
-                   deleteControl: function (controlId) {
-                       return $http({
-                           method: 'POST',
-                           url: '/Forms/DeleteControl',
-                           data: { controlId: controlId }
-                       });
-                   }
+                   },                  
                };                                                        
        }]);

@@ -33,6 +33,11 @@ namespace H5Forms.BusinessLogic
             return Enum.GetNames(typeof (ControlType));
         }
 
+        public IEnumerable<string> GetLayoutTypes()
+        {
+            return Enum.GetNames(typeof(LayoutType));
+        }
+
         public void UpdateForm(Form formDto)
         {
             var form = _h5FormsContext.Forms.Single(f => f.Id == formDto.Id);                        
@@ -53,6 +58,6 @@ namespace H5Forms.BusinessLogic
             _h5FormsContext.SaveChanges();
 
             return Mapper.Map<Entities.Form.Form, Form>(form);
-        }       
+        }        
     }
 }

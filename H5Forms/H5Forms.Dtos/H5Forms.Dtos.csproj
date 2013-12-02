@@ -50,10 +50,13 @@
     <Compile Include="Form\Controls\Control.cs" />
     <Compile Include="Form\Controls\ControlType.cs" />
     <Compile Include="Form\Controls\DropDown.cs" />
+    <Compile Include="Form\Controls\Factories\BasicControlFactory.cs" />
+    <Compile Include="Form\Controls\Factories\IControlFactory.cs" />
     <Compile Include="Form\Controls\FreeText.cs" />
+    <Compile Include="Form\Controls\LayoutType.cs" />
+    <Compile Include="Form\Controls\Option.cs" />
     <Compile Include="Form\Controls\OptionsControls.cs" />
-    <Compile Include="Form\Controls\Properties.cs" />
-    <Compile Include="Form\Controls\RadioList.cs" />
+    <Compile Include="Form\Controls\OptionList.cs" />
     <Compile Include="Form\Controls\TextBox.cs" />
     <Compile Include="Form\Controls\ValueControl.cs" />
     <Compile Include="Form\Form.cs" />

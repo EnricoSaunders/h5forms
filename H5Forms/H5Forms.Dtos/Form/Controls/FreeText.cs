@@ -4,6 +4,10 @@
     {
         public string Text { get; set; }
 
-        public Properties Properties { get; set; }
+        public int FontSize { get; set; }
+
+        public string Color { get; set; }
+
+        public bool Strong { get; set; }
     }
 }

@@ -3,8 +3,9 @@
     public enum  ControlType
     {
         FreeText = 1,
-        TextBox,
-        TextBoxMultiLine,        
-        DropDown,        
+        TextBox,        
+        DropDown,
+        CheckList,
+        OptionList,        
     }
 }

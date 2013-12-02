@@ -1,0 +1,17 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    <label>{{control.label}}</label>
+    <ul class="option-list">
+        <li ng-repeat="option in control.options" ng-class="control.layoutType">
+            <input type="radio" ng-value="option.id" name="optVValue" ng-model="control.value" ng-disabled="true" />
+            {{option.value}}
+        </li>
+        <li ng-show="control.allowOther">
+            <input type="radio" name="optVValue" ng-value="control.otherOption.id" ng-model="control.value" ng-disabled="true" />
+            {{control.otherOption.value}}
+        </li>
+    </ul>
+    <input type="text" ng-show="control.allowOther" ng-disabled="true" ng-model="control.otherValue" />
+</div>

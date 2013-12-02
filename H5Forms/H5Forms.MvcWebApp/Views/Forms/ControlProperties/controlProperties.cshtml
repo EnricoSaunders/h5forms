@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<div ng-if="currentControl" >    
+    <span class="label label-primary">{{currentControl.controlType}}</span>
+
+    <div  ng-if="currentControl.hasOwnProperty('label')">
+        <label>Label</label>
+        <input type="text" ng-model="currentControl.label" class="form-control" />
+    </div>
+
+        <div ng-include="controlPropertiesTemplate"></div>
+
+        <div ng-if="currentControl.validationRules" ng-repeat="valitation in currentControl.validationRules" ng-switch on="valitation.validationType">
+            <div ng-switch-when="Required">
+                <label>{{valitation.validationType}}</label>
+                <input type="checkbox" ng-model="valitation.isRequired" />
+            </div>
+            <div ng-switch-when="Length">
+                <div><label>{{valitation.validationType}}</label></div>
+                <label>Min value</label>
+                <input type="text" ng-model="valitation.min" class="length-validation form-control"  />
+                <label>Max value</label>
+                <input type="text" ng-model="valitation.max" class="length-validation form-control" />
+            </div>
+        </div>
+</div>

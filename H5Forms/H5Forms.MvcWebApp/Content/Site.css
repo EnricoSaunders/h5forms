@@ -7,9 +7,16 @@ body {
    
 }
 div{ display: block;}
+ul {
+    padding: 0;
+}
 
 #formBuilder {
     margin: 30px 0 0 0;
+}
+
+#formBuilder  li {
+    list-style: none;
 }
 
 #formBuilder .row {
@@ -26,6 +33,9 @@ div{ display: block;}
     min-height: 600px;
 }
 /*FORM-VIEW*/
+.form-view {
+    margin-top: 14px; 
+}
 .form-view .control {
     padding: 16px 8px;    
     border: 1px solid #ffffff;        
@@ -42,6 +52,46 @@ div{ display: block;}
     cursor: pointer;
     
 }
-.form-view .control:hover .delete-control {
+.form-view .control.alert.alert-warning .delete-control {
     display: inline-block;    
+}
+
+.length-validation {
+    width: 120px;
+}
+.control-options {
+    
+}
+.small-comment {
+    color: #cccccc;
+    font-size: 10px;   
+}
+.check-list  li, .option-list  li {
+    margin: 6px 0;
+    vertical-align:  top;
+    padding-right: 7px;
+}
+.check-list .OneColumn, .option-list .OneColumn {
+    display: block;    
+}
+.check-list .TwoColumns, .option-list .TwoColumns {
+    display: inline-block;
+    width: 49%;
+}
+.check-list .ThreeColumns, .option-list .ThreeColumns {
+    display: inline-block;
+    width: 33%;
+}
+.check-list .InLine, .option-list .InLine {
+    display: inline-block;
+    margin-right: 4px; 
+}
+.input-group {
+    margin-top: 4px;
+}
+.cursor{
+    cursor: pointer;
+}
+.form-control {
+    display: inline;
 }

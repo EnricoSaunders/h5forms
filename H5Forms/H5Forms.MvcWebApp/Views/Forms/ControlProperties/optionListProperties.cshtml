@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    <label>Options</label>
+
+    <ul class="control-options">       
+        <li ng-repeat="option in currentControl.options">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" ng-value="option.id" name="optValue" ng-model="currentControl.value" />
+                </span>
+                <input type="text" ng-model="option.value" class="form-control" />
+                <span class="input-group-addon">
+                    <img alt="Add" title="Add" src="@Url.Content("~/Content/images/add.png")" ng-click="addOption($index + 1)" />
+                    <img alt="Remove" title="Remove" src="@Url.Content("~/Content/images/remove.png")" ng-click="deleteOption(option)" />
+                </span>
+            </div>                                     
+        </li>
+        <li ng-show="currentControl.allowOther">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" name="optValue" ng-value="currentControl.otherOption.id" ng-model="currentControl.value" />
+                </span>
+                <input type="text" ng-model="currentControl.otherOption.value" class="form-control" />
+            </div>                          
+        </li>
+    </ul>
+    <div>
+        <input type="checkbox" ng-model="currentControl.allowOther" /><label>Allow Other</label>        
+    </div>
+    <div>
+        <label>Layout</label>
+        <select ng-model="currentControl.layoutType" ng-options="layout for layout in layoutTypes" class="form-control"></select>
+    </div>
+</div>

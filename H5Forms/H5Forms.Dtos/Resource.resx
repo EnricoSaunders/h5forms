@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckListLabel" xml:space="preserve">
+    <value>CheckList label</value>
+  </data>
+  <data name="DropDownLabel" xml:space="preserve">
+    <value>DropDown label</value>
+  </data>
+  <data name="FirstOption" xml:space="preserve">
+    <value>First option</value>
+  </data>
+  <data name="FreeTextDefaultText" xml:space="preserve">
+    <value>Enter a text here</value>
+  </data>
   <data name="InvalidControl" xml:space="preserve">
     <value>Control  doesn't exist</value>
   </data>
@@ -126,10 +138,25 @@
   <data name="InvalidValidationType" xml:space="preserve">
     <value>Validation type doesn't exist</value>
   </data>
-  <data name="LengthDefaultMessage" xml:space="preserve">
+  <data name="LengthMessage" xml:space="preserve">
     <value>The value must be in the described range</value>
   </data>
-  <data name="RequiredDefaultMessage" xml:space="preserve">
+  <data name="OptionListLabel" xml:space="preserve">
+    <value>OptionList label</value>
+  </data>
+  <data name="OtherValue" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="RequiredMessage" xml:space="preserve">
     <value>This field is required</value>
+  </data>
+  <data name="SecondOption" xml:space="preserve">
+    <value>Second option</value>
+  </data>
+  <data name="TextBoxLabel" xml:space="preserve">
+    <value>TextBox label</value>
+  </data>
+  <data name="ThirdOption" xml:space="preserve">
+    <value>Third option</value>
   </data>
 </root>

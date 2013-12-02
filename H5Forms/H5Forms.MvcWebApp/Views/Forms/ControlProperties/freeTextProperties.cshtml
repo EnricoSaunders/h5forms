@@ -1,22 +1,20 @@
 ﻿@{
     Layout = null;
 }
-<div>
-    <h4>Free Text properties</h4>
-    
+<div>       
     <label>Text</label>
-    <textarea ng-model="currentControl.text"></textarea>
+    <textarea ng-model="currentControl.text" class="form-control"></textarea>
     
     <div>
         <label>Font size: </label>
-        <input type="number" min="1" ng-model="currentControl.properties.fontSize" />
+        <input type="number" min="1" ng-model="currentControl.fontSize" class="form-control" />
     </div>      
     <div>
         <label>Color: </label>
-        <input type="color"  ng-model="currentControl.properties.color" />
+        <input type="color"  ng-model="currentControl.color" />
     </div> 
     <div>
         <label>Strong: </label>
-        <input type="checkbox" ng-model="currentControl.properties.strong" />
+        <input type="checkbox" ng-model="currentControl.strong" />
     </div> 
 </div>

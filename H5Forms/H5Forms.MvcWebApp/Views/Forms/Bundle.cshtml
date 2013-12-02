@@ -1,23 +1,12 @@
 ﻿@{
     Layout = null;
 }
+@*//DIRECTIVES*@
 <script type="text/ng-template" id="Forms/Controls/formView.cshtml">
     @RenderPage(Url.Content("~/Views/Forms/Controls/formView.cshtml"))
 </script>
 <script type="text/ng-template" id="Forms/Controls/control.cshtml">
     @RenderPage(Url.Content("~/Views/Forms/Controls/control.cshtml"))
-</script>
-<script type="text/ng-template" id="Forms/Controls/TextBox.cshtml">
-    @RenderPage(Url.Content("~/Views/Forms/Controls/textBox.cshtml"))
-</script>
-<script type="text/ng-template" id="Forms/Controls/FreeText.cshtml">
-    @RenderPage(Url.Content("~/Views/Forms/Controls/freeText.cshtml"))
-</script>
-<script type="text/ng-template" id="Forms/ControlProperties/FreeTextProperties.cshtml">
-    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/freeTextProperties.cshtml"))
-</script>
-<script type="text/ng-template" id="Forms/ControlProperties/TextBoxProperties.cshtml">
-    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/textBoxProperties.cshtml"))
 </script>
 <script type="text/ng-template" id="Shared/Templates/tabs.cshtml">
     @RenderPage(Url.Content("~/Views/Shared/Templates/tabs.cshtml"))
@@ -25,3 +14,39 @@
 <script type="text/ng-template" id="Shared/Templates/pane.cshtml">
     @RenderPage(Url.Content("~/Views/Shared/Templates/pane.cshtml"))
 </script>
+@*//CONTROLS*@
+<script type="text/ng-template" id="Forms/Controls/TextBox.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/Controls/textBox.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/Controls/FreeText.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/Controls/freeText.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/Controls/DropDown.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/Controls/dropDown.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/Controls/CheckList.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/Controls/checkList.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/Controls/OptionList.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/Controls/optionList.cshtml"))
+</script>
+@*//CONTROL PROPERTIES*@
+<script type="text/ng-template" id="Forms/ControlProperties/ControlProperties.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/controlProperties.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/ControlProperties/FreeTextProperties.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/freeTextProperties.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/ControlProperties/TextBoxProperties.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/textBoxProperties.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/ControlProperties/DropDownProperties.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/dropDownProperties.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/ControlProperties/CheckListProperties.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/checkListProperties.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/ControlProperties/OptionListProperties.cshtml">
+    @RenderPage(Url.Content("~/Views/Forms/ControlProperties/optionListProperties.cshtml"))
+</script>
+

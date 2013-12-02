@@ -61,6 +61,42 @@ namespace H5Forms.Dtos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CheckList label.
+        /// </summary>
+        internal static string CheckListLabel {
+            get {
+                return ResourceManager.GetString("CheckListLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DropDown label.
+        /// </summary>
+        internal static string DropDownLabel {
+            get {
+                return ResourceManager.GetString("DropDownLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First option.
+        /// </summary>
+        internal static string FirstOption {
+            get {
+                return ResourceManager.GetString("FirstOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a text here.
+        /// </summary>
+        internal static string FreeTextDefaultText {
+            get {
+                return ResourceManager.GetString("FreeTextDefaultText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Control  doesn&apos;t exist.
         /// </summary>
         internal static string InvalidControl {
@@ -90,18 +126,63 @@ namespace H5Forms.Dtos {
         /// <summary>
         ///   Looks up a localized string similar to The value must be in the described range.
         /// </summary>
-        internal static string LengthDefaultMessage {
+        internal static string LengthMessage {
             get {
-                return ResourceManager.GetString("LengthDefaultMessage", resourceCulture);
+                return ResourceManager.GetString("LengthMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OptionList label.
+        /// </summary>
+        internal static string OptionListLabel {
+            get {
+                return ResourceManager.GetString("OptionListLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        internal static string OtherValue {
+            get {
+                return ResourceManager.GetString("OtherValue", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to This field is required.
         /// </summary>
-        internal static string RequiredDefaultMessage {
+        internal static string RequiredMessage {
             get {
-                return ResourceManager.GetString("RequiredDefaultMessage", resourceCulture);
+                return ResourceManager.GetString("RequiredMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Second option.
+        /// </summary>
+        internal static string SecondOption {
+            get {
+                return ResourceManager.GetString("SecondOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextBox label.
+        /// </summary>
+        internal static string TextBoxLabel {
+            get {
+                return ResourceManager.GetString("TextBoxLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Third option.
+        /// </summary>
+        internal static string ThirdOption {
+            get {
+                return ResourceManager.GetString("ThirdOption", resourceCulture);
             }
         }
     }

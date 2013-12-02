@@ -190,6 +190,7 @@
     <Content Include="Content\font-awesome\font-awesome.min.css" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\add.png" />
     <Content Include="Content\images\remove.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -306,6 +307,13 @@
     <Content Include="Views\Forms\Controls\freeText.cshtml" />
     <Content Include="Views\Forms\ControlProperties\freeTextProperties.cshtml" />
     <Content Include="Views\Forms\ControlProperties\textBoxProperties.cshtml" />
+    <Content Include="Views\Forms\Controls\dropDown.cshtml" />
+    <Content Include="Views\Forms\Controls\checkList.cshtml" />
+    <Content Include="Views\Forms\Controls\optionList.cshtml" />
+    <Content Include="Views\Forms\ControlProperties\dropDownProperties.cshtml" />
+    <Content Include="Views\Forms\ControlProperties\checkListProperties.cshtml" />
+    <Content Include="Views\Forms\ControlProperties\optionListProperties.cshtml" />
+    <Content Include="Views\Forms\ControlProperties\controlProperties.cshtml" />
     <None Include="Views\Forms\Controls\textBox.cshtml" />
     <None Include="Views\Forms\Controls\control.cshtml" />
     <None Include="Views\Forms\Controls\formView.cshtml" />
