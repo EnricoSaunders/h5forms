@@ -17,6 +17,7 @@ namespace H5Forms.BusinessLogic
                 .ForMember(dest => dest.Controls, opt => opt.MapFrom(src => string.IsNullOrEmpty(src.Controls) ? new List<Control>() : JsonConvert.DeserializeObject(src.Controls)));
             Mapper.CreateMap<Dtos.Form.Form, Form>()
                 .ForMember(dest => dest.Controls, opt => opt.MapFrom(src => src.Controls == null ? null : JsonConvert.SerializeObject(src.Controls)));
+            Mapper.CreateMap<Form, Dtos.Form.BasicForm>();
 
             Mapper.CreateMap<User, Dtos.User>();
             Mapper.CreateMap<Dtos.User, User>();

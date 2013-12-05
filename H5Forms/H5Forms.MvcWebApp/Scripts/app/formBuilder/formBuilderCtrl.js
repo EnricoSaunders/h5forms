@@ -1,18 +1,17 @@
 ﻿angular.module('h5Forms.formBuilder.ctrl.formBuilder', [])
        .controller('formBuilderCtrl', [
            '$scope',
+           '$routeParams',
            'formService',
-           function ($scope, formService) {
+           function ($scope, $routeParams, formService) {
                $scope.controlTypes = [];
                $scope.layoutTypes = [];
-               $scope.form = { title: 'Form title', controls: [] };
+               this.formInit = { title: 'Form title', controls: [] };
+               $scope.form = null;
                $scope.currentControl = null;
                $scope.controlPropertiesTemplate = null;           
-
-               formService.getTypes().then(function(response) {
-                   $scope.controlTypes = response.data.controlTypes;
-                   $scope.layoutTypes = response.data.layoutTypes;
-               }, function () { throw 'Error on getTypes'; });
+                                                           
+               //#region Controls
                
                $scope.addControl = function (controlType) {
                    formService.createControl(controlType).then(function (response) {
@@ -60,8 +59,27 @@
                    
                };                             
                              
-               $scope.setcurrentControl = function(control) {
+               $scope.setCurrentControl = function(control) {
                    $scope.currentControl = control;                 
                    $scope.controlPropertiesTemplate = 'Forms/ControlProperties/' + control.controlType + 'Properties.cshtml';
                };
+               
+               //#endregion
+               
+               //#region Init
+               
+               if (!$scope.controlTypes.length) {
+                   formService.getTypes().then(function(response) {
+                       $scope.controlTypes = response.data.controlTypes;
+                       $scope.layoutTypes = response.data.layoutTypes;
+                   }, function() { throw 'Error on getTypes'; });
+               }
+               
+               if (angular.isUndefined($routeParams.id)) {
+                   $scope.form = this.formInit;
+               } else {
+                   //TODO: Load Form
+               }               
+
+               //#endregion
            }]);

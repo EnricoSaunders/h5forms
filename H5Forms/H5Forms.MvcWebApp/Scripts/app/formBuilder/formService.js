@@ -15,6 +15,19 @@
                            url: '/Forms/CreateControl',
                            data: { controlType: controlType }
                        });
-                   },                  
+                   },
+                   getForms: function () {
+                       return $http({
+                           method: 'GET',
+                           url: '/Forms/GetForms'
+                       });
+                   },
+                   getForm: function (id) {
+                       return $http({
+                           method: 'POST',
+                           url: '/Forms/GetForm',
+                           data: { formId: id }
+                       });
+                   }
                };                                                        
        }]);

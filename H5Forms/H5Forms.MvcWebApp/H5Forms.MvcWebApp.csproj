@@ -167,6 +167,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\FormsTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -267,7 +268,9 @@
     <Content Include="Content\font\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\font\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\angularJs\angular-route.min.js" />
     <Content Include="Scripts\angularJs\angular-v1.2.2.min.js" />
+    <Content Include="Scripts\app\formBuilder\formListCtrl.js" />
     <Content Include="Scripts\app\formBuilder\formBuilderCtrl.js" />
     <Content Include="Scripts\app\formBuilder\formBuilderModule.js" />
     <Content Include="Scripts\app\formBuilder\formService.js" />
@@ -314,11 +317,14 @@
     <Content Include="Views\Forms\ControlProperties\checkListProperties.cshtml" />
     <Content Include="Views\Forms\ControlProperties\optionListProperties.cshtml" />
     <Content Include="Views\Forms\ControlProperties\controlProperties.cshtml" />
+    <Content Include="Views\FormsTest\Index.cshtml" />
     <None Include="Views\Forms\Controls\textBox.cshtml" />
     <None Include="Views\Forms\Controls\control.cshtml" />
     <None Include="Views\Forms\Controls\formView.cshtml" />
     <Content Include="Views\Shared\Templates\tabs.cshtml" />
     <Content Include="Views\Shared\Templates\pane.cshtml" />
+    <Content Include="Views\Forms\Edit.cshtml" />
+    <Content Include="Views\Forms\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

@@ -1,6 +1,13 @@
 ﻿@{
     Layout = null;
 }
+@*//SECTIONS*@
+<script type="text/ng-template" id="Forms/list">
+    @RenderPage(Url.Content("~/Views/Forms/List.cshtml"))
+</script>
+<script type="text/ng-template" id="Forms/edit">
+    @RenderPage(Url.Content("~/Views/Forms/Edit.cshtml"))
+</script>
 @*//DIRECTIVES*@
 <script type="text/ng-template" id="Forms/Controls/formView.cshtml">
     @RenderPage(Url.Content("~/Views/Forms/Controls/formView.cshtml"))

@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Controls</h3>
+                </div>
+                <div class="panel-body" ng-repeat="controlType in controlTypes">
+                    <button class="btn btn-default btn-lg btn-block" ng-click="addControl(controlType)">{{controlType}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <tabs>
+                <pane title="Preview">
+                    <div>Preview!</div>
+                </pane>
+                <pane title="Designer" selected="true">
+                    <form-view title="form.title" mode="design">
+                        <control ng-repeat="control in form.controls"></control>
+                    </form-view>
+                </pane>
+            </tabs>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Control Properties</h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-include="'Forms/ControlProperties/ControlProperties.cshtml'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

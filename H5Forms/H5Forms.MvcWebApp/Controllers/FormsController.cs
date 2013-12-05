@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using H5Forms.BusinessLogic;
 using System.Web.Mvc;
 using H5Forms.Dtos.Common;
+using H5Forms.Dtos.Form;
 using H5Forms.Dtos.Form.Controls;
 using H5Forms.Dtos.Form.Controls.Factories;
 using H5Forms.Infrastructure;
@@ -27,6 +28,45 @@ namespace H5Forms.MvcWebApp.Controllers
         {           
             return View();
         }
+
+        #region Forms
+
+        public ActionResult GetForms()
+        {           
+            var response = new Response<IList<BasicForm>> { Result = new Result() { HasErrors = false, Messages = new List<string>() } };
+
+            try
+            {
+                response.Data = _formAdmin.GetForms("Test");
+            }
+            catch (Exception)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(Resource.GeneralError);
+            }
+
+            return this.JsonNet(response);
+        }
+
+        [HttpPost]
+        public ActionResult GetForm(int formId)
+        {
+            var response = new Response<Form> { Result = new Result() { HasErrors = false, Messages = new List<string>() } };
+
+            try
+            {
+                response.Data = _formAdmin.GetForm(formId);
+            }
+            catch (Exception)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(Resource.GeneralError);
+            }
+
+            return this.JsonNet(response);
+        }
+
+        #endregion
 
         #region Controls
         public ActionResult GetTypes()

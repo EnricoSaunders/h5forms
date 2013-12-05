@@ -46,6 +46,7 @@
     <Compile Include="Common\Response.cs" />
     <Compile Include="Common\Result.cs" />
     <Compile Include="Common\ValidationException.cs" />
+    <Compile Include="Form\BasicForm.cs" />
     <Compile Include="Form\Controls\CheckList.cs" />
     <Compile Include="Form\Controls\Control.cs" />
     <Compile Include="Form\Controls\ControlType.cs" />

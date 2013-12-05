@@ -58,6 +58,20 @@ namespace H5Forms.BusinessLogic
             _h5FormsContext.SaveChanges();
 
             return Mapper.Map<Entities.Form.Form, Form>(form);
-        }        
+        }
+
+        public IList<BasicForm> GetForms(string user)
+        {
+            var forms = _h5FormsContext.Forms.Where(f => string.Equals(f.User.Nick, user)).ToList();
+
+            return Mapper.Map<IList<Entities.Form.Form>, IList<BasicForm>>(forms);
+        }
+
+        public Form GetForm(int formId)
+        {
+            var form = _h5FormsContext.Forms.Single(f => f.Id == formId);
+
+            return Mapper.Map<Entities.Form.Form, Form>(form);
+        }
     }
 }
