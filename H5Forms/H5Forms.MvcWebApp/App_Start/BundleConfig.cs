@@ -11,6 +11,7 @@ namespace H5Forms.MvcWebApp
             bundles.Add(new StyleBundle("~/Content/css")
                     .Include("~/Content/bootstrap/bootstrap.css")                    
                     .Include("~/Content/font-awesome/font-awesome.css")
+                    .Include("~/Content/ng-grid.css")
                     .Include("~/Content/site.css"));
 
 

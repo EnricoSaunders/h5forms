@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<div>    
+    <label>Options</label>  
+
+    <ul class="control-options">
+        <li>
+            <div class="small-comment">(This is the empty option)</div>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" ng-value="0" name="value" ng-model="currentControl.value" />
+                </span>
+                <input type="text" ng-model="currentControl.emptyOption.value" class="form-control" />    
+            </div>                             
+        </li>
+        <li ng-repeat="option in currentControl.options" >
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" ng-value="option.id" name="value" ng-model="currentControl.value" />
+                </span>
+                <input type="text" ng-model="option.value" class="form-control" />     
+                <span class="input-group-addon">
+                    <img alt="Add" title="Add" src="@Url.Content("~/Content/images/add.png")" ng-click="addOption($index + 1)" class="cursor" />
+                    <img alt="Remove" title="Remove" src="@Url.Content("~/Content/images/remove.png")" ng-click="deleteOption(option)" class="cursor" />
+                </span>           
+            </div>                                               
+        </li>
+    </ul>    
+</div>

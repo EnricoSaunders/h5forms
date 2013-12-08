@@ -4,7 +4,7 @@
 <label>{{control.label}}</label>
 <ul class="check-list">
     <li ng-repeat="option in control.options" ng-class="control.layoutType">       
-        <input type="checkbox" value="option.id" name="chkValue" ng-model="control.selectedValues[option.id]" ng-disabled="true" />        
+        <input type="checkbox" ng-disabled="true"  ng-checked="control.selectedValues.indexOf(option.id) != -1" />        
         {{option.value}}
     </li>
 </ul>

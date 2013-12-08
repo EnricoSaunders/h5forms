@@ -2,6 +2,6 @@
     Layout = null;
 }
 <div class="control" ng-click="setCurrentControl(control)" ng-class="{'alert alert-warning': currentControl === control  }">
-    <div ng-include="'Forms/Controls/' + control.controlType +'.cshtml'"></div>
+    <div ng-include="'FormsAdmin/Controls/' + control.controlType +'.cshtml'"></div>
     <span class="delete-control" ng-click="deleteControl(control)"></span>
 </div>

@@ -3,7 +3,7 @@
            return {
                restrict: 'E',
                transclude: true,               
-               templateUrl: 'Forms/Controls/formView.cshtml',
+               templateUrl: 'FormsAdmin/Controls/formView.cshtml',
                scope: {
                    title: '@'
                },
@@ -41,7 +41,7 @@
                 restrict: 'E',
                 replace: true,
                 require: '^formView',
-                templateUrl: 'Forms/Controls/control.cshtml',
+                templateUrl: 'FormsAdmin/Controls/control.cshtml',
                 link: function (scope, element, attrs, formViewCtrl) {
                     formViewCtrl.addControlScope(scope);
                 }

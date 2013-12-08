@@ -4,6 +4,7 @@
                restrict: 'E',
                transclude: true,
                templateUrl: 'Shared/Templates/tabs.cshtml',
+               scope: {},
                controller: [
                    '$scope',
                    function ($scope) {

@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+}
+<label>{{control.label}}</label>
+<select disabled="disabled" class="form-control">
+    <option ng-selected="0 == control.value">{{control.emptyOption.value}}</option>
+    <option ng-repeat="option in control.options" ng-selected="option.id == control.value">{{option.value}}</option>
+</select>

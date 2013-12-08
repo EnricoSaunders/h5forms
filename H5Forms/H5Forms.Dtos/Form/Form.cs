@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using H5Forms.Dtos.Converters;
 using H5Forms.Dtos.Form.Controls;
+using Newtonsoft.Json;
 
 namespace H5Forms.Dtos.Form
 {
@@ -11,7 +13,9 @@ namespace H5Forms.Dtos.Form
         public DateTime UpdateDate { get; set; }
         public bool Enabled { get; set; }
         public string Title { get; set; }
+        //[JsonConverter(typeof(ControlConverter))]
         public IList<Control> Controls { get; set; }
-        public User User { get; set; }       
+        public User User { get; set; }               
     }
 }
+
