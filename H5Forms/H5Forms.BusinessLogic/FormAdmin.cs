@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using H5Forms.Dtos.Converters;
@@ -8,6 +7,7 @@ using H5Forms.Dtos.Form.Controls;
 using H5Forms.EfRepository;
 using H5Forms.Entities.Interfaces;
 using System;
+using H5Forms.Infrastructure;
 using Newtonsoft.Json;
 
 namespace H5Forms.BusinessLogic
@@ -59,7 +59,7 @@ namespace H5Forms.BusinessLogic
         public void CreateForm(Form formDto)
         {
             var form = new Entities.Form.Form
-            {
+            {                
                 User = _h5FormsContext.Users.Single(u => string.Equals(u.Nick, formDto.User.Nick)),
                 CreateDate = DateTime.Now,
                 UpdateDate = DateTime.Now,
@@ -67,10 +67,15 @@ namespace H5Forms.BusinessLogic
                 Title = formDto.Title,
                 Controls = Mapper.Map<Form, Entities.Form.Form>(formDto).Controls                                
             };
+            
 
             _h5FormsContext.Forms.Add(form);
 
-            _h5FormsContext.SaveChanges();            
+            _h5FormsContext.SaveChanges();
+
+            form.Hash = HashHelper.Hash(string.Format("{0}{1}{2}", form.Id, formDto.User.Nick, form.CreateDate)).Replace("/", string.Empty);
+
+            _h5FormsContext.SaveChanges();
         }
 
         public void UpdateForm(Form formDto)

@@ -7,13 +7,11 @@ using System.Web.Mvc;
 namespace H5Forms.MvcWebApp.Controllers
 {
     public class FormsTestController : Controller
-    {
-        //
-        // GET: /FormsTest/
+    {                
 
-        public ActionResult Index()
+        public ActionResult Test(string id)
         {
-            return View();
+            return Content("sdsadsad")  ;
         }
 
     }

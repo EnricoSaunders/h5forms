@@ -195,6 +195,7 @@
     <Content Include="Content\font\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\add.png" />
     <Content Include="Content\images\edit.png" />
+    <Content Include="Content\images\external_link.gif" />
     <Content Include="Content\images\remove.png" />
     <Content Include="Content\ng-grid.css" />
     <Content Include="Content\ng-grid.min.css" />
@@ -280,7 +281,7 @@
     <Content Include="Scripts\app\formsAdmin\formsListCtrl.js" />
     <Content Include="Scripts\app\formsAdmin\formEditCtrl.js" />
     <Content Include="Scripts\app\formsAdmin\formsAdminModule.js" />
-    <Content Include="Scripts\app\formsAdmin\formsAdminService.js" />
+    <Content Include="Scripts\app\shared\formsService.js" />
     <Content Include="Scripts\app\formsAdmin\formViewDirective.js" />
     <Content Include="Scripts\app\shared\tabsDirective.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
@@ -324,7 +325,6 @@
     <Content Include="Views\FormsAdmin\Properties\checkListProperties.cshtml" />
     <Content Include="Views\FormsAdmin\Properties\optionListProperties.cshtml" />
     <Content Include="Views\FormsAdmin\Properties\controlProperties.cshtml" />
-    <Content Include="Views\FormsTest\Index.cshtml" />
     <None Include="Views\FormsAdmin\Controls\textBox.cshtml" />
     <None Include="Views\FormsAdmin\Controls\control.cshtml" />
     <None Include="Views\FormsAdmin\Controls\formView.cshtml" />

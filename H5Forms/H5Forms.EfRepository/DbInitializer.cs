@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using H5Forms.Entities;
 
@@ -10,7 +11,7 @@ namespace H5Forms.EfRepository
         {
             var users = new List<User>
             {
-                new User { Nick = "Test"}
+                new User { Nick = "Test", CreateDate = DateTime.Now, UpdateDate = DateTime.Now}
             };
 
             users.ForEach(u => context.Users.Add(u));

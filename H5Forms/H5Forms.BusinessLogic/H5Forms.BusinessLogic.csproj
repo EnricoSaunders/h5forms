@@ -77,6 +77,10 @@
       <Project>{1fa86f89-10b9-4f28-bc35-557e27bf99c6}</Project>
       <Name>H5Forms.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\H5Forms.Infrastructure\H5Forms.Infrastructure.csproj">
+      <Project>{50b037e6-339d-4935-968b-43f4f1e66bf9}</Project>
+      <Name>H5Forms.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

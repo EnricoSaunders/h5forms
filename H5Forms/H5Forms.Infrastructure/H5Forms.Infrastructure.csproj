@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerExtensions.cs" />
+    <Compile Include="HashHelper.cs" />
     <Compile Include="JsonNetResult.cs" />
     <Compile Include="JsonNetValueProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

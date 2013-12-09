@@ -2,9 +2,9 @@
        .controller('formEditCtrl', [
            '$scope',
            '$routeParams',
-           'formsAdminService',
+           'formsService',
            'navigationService',
-           function ($scope, $routeParams, formsAdminService, navigationService) {
+           function ($scope, $routeParams, formsService, navigationService) {
                $scope.controlTypes = [];
                $scope.layoutTypes = [];
                this.formInit = { title: 'Form title', enabled: true, controls: [] };
@@ -18,11 +18,11 @@
                
                $scope.saveForm = function () {
                    if ($scope.form.id) {
-                       formsAdminService.updateForm($scope.form).then(function (response) {
+                       formsService.updateForm($scope.form).then(function (response) {
                            navigationService.goToList();
                        }, function () { throw 'Error on saveForm'; });
                    } else {
-                       formsAdminService.createForm($scope.form).then(function (response) {
+                       formsService.createForm($scope.form).then(function (response) {
                            navigationService.goToList();
                        }, function () { throw 'Error on saveForm'; });
                    }                  
@@ -31,7 +31,7 @@
                //#region Controls
                
                $scope.addControl = function (controlType) {
-                   formsAdminService.createControl(controlType).then(function (response) {
+                   formsService.createControl(controlType).then(function (response) {
                        var control = response.data.data;                       
                        var lastId = 1;
 
@@ -93,7 +93,7 @@
                
                //#region Init
                               
-                formsAdminService.getTypes().then(function (response) {
+               formsService.getTypes().then(function (response) {
                     $scope.controlTypes = response.data.controlTypes;
                     $scope.layoutTypes = response.data.layoutTypes;
                 }, function() { throw 'Error on getTypes'; });
@@ -101,7 +101,7 @@
                if (angular.isUndefined($routeParams.id)) {
                    $scope.form = this.formInit;
                } else {
-                   formsAdminService.getForm($routeParams.id).then(function (response) {
+                   formsService.getForm($routeParams.id).then(function (response) {
                        $scope.form = response.data.data;
                    }, function () { throw 'Error on getForm'; });
                }               
