@@ -1,0 +1,7 @@
+﻿@model H5Forms.Dtos.Form.Controls.FreeText
+@{
+    Layout = null;
+}
+<div style="@string.Format("font-size: {0}px; color: {1}; font-weight: {2};", Model.FontSize, Model.Color, Model.Strong ? "bold" : "normal")">
+    @Model.Text
+</div> 

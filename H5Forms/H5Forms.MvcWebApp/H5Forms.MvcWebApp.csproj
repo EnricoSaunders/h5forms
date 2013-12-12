@@ -334,6 +334,12 @@
     <Content Include="Views\FormsAdmin\List.cshtml" />
     <Content Include="Views\FormsAdmin\GridActions.cshtml" />
     <Content Include="Views\FormsAdmin\Properties\formProperties.cshtml" />
+    <Content Include="Views\FormsTest\Test.cshtml" />
+    <Content Include="Views\Shared\Partials\CheckList.cshtml" />
+    <Content Include="Views\Shared\Partials\DropDown.cshtml" />
+    <Content Include="Views\Shared\Partials\FreeText.cshtml" />
+    <Content Include="Views\Shared\Partials\OptionList.cshtml" />
+    <Content Include="Views\Shared\Partials\TextBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

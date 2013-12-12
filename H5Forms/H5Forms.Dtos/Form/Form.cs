@@ -8,7 +8,7 @@ namespace H5Forms.Dtos.Form
 {
     public class Form
     {        
-        public int Id { get; set; }
+        public int Id { get; set; }        
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public bool Enabled { get; set; }

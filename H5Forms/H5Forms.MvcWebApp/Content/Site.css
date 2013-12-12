@@ -133,3 +133,26 @@ iframe {
     width: 100%; 
     height: 300px;
 }
+
+
+  .form {
+      width: 600px;
+      margin: 40px auto 0 auto;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #cccccc;
+
+  }
+  .form li {
+      list-style: none;
+  }
+   .form .controls > div {
+       display: block;
+       margin: 20px 0;
+  }
+ .form .submit {
+     text-align: right;
+     border-top: dotted 1px #cccccc;
+     padding-top: 15px;
+      
+  }

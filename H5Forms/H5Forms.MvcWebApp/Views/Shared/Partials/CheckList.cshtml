@@ -1,0 +1,18 @@
+﻿@model H5Forms.Dtos.Form.Controls.CheckList
+@{
+    Layout = null;
+}
+<div>
+    @Html.Label(Model.ColumnName, Model.Label)
+    <div>
+        <ul>
+            @foreach (var option in Model.Options)
+            {
+                <li>
+                    <input type="checkbox" name="@Model.ColumnName" value="@option.Id" />
+                    @option.Value
+                </li>                
+            }
+        </ul>        
+    </div>
+</div> 

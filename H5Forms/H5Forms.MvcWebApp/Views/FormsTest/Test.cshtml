@@ -1,0 +1,27 @@
+﻿@using H5Forms.Dtos.Form.Controls
+@model H5Forms.Dtos.Form.Form
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<div class="form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="title">
+            <h1>@Model.Title</h1>
+        </div>
+        <div class="controls">
+            @foreach (var control in Model.Controls)
+            {
+               @Html.Partial(string.Format(@"~\Views\Shared\Partials\{0}.cshtml", Enum.GetName(typeof(ControlType), control.ControlType)), control)
+            }
+        </div>
+    <div class="submit">
+        <input type="submit" class="btn btn-primary btn-lg" value="Save" />
+    </div>
+    }
+</div>

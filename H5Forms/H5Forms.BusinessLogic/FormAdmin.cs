@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using H5Forms.Dtos.Converters;
 using H5Forms.Dtos.Form;
 using H5Forms.Dtos.Form.Controls;
 using H5Forms.EfRepository;
 using H5Forms.Entities.Interfaces;
 using System;
 using H5Forms.Infrastructure;
-using Newtonsoft.Json;
 
 namespace H5Forms.BusinessLogic
 {
@@ -38,9 +36,8 @@ namespace H5Forms.BusinessLogic
         public IEnumerable<string> GetLayoutTypes()
         {
             return Enum.GetNames(typeof(LayoutType));
-        }      
+        }            
 
-      
         public IList<BasicForm> GetForms(string user)
         {
             var forms = _h5FormsContext.Forms.Where(f => string.Equals(f.User.Nick, user)).ToList();
@@ -50,8 +47,14 @@ namespace H5Forms.BusinessLogic
 
         public Form GetForm(int formId)
         {
-            var form = _h5FormsContext.Forms.Single(f => f.Id == formId);
-            var controls = JsonConvert.DeserializeObject<List<Control>>(form.Controls, new JsonConverter[] { new ControlConverter(), new ValidationConverter()});
+            var form = _h5FormsContext.Forms.Single(f => f.Id == formId);            
+
+            return Mapper.Map<Entities.Form.Form, Form>(form);
+        }
+
+        public Form GetFormByHash(string hash)
+        {
+            var form = _h5FormsContext.Forms.Single(f => string.Equals(f.Hash, hash));            
 
             return Mapper.Map<Entities.Form.Form, Form>(form);
         }
@@ -88,7 +91,6 @@ namespace H5Forms.BusinessLogic
             form.Controls = Mapper.Map<Form, Entities.Form.Form>(formDto).Controls;
             _h5FormsContext.SaveChanges();
         }
-
       
     }
 }
