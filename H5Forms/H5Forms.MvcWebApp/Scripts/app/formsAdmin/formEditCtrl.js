@@ -6,8 +6,9 @@
            'navigationService',
            function ($scope, $routeParams, formsService, navigationService) {
                $scope.controlTypes = [];
-               $scope.layoutTypes = [];
-               this.formInit = { title: 'Form title', enabled: true, controls: [] };
+               $scope.optionLayoutTypes = [];
+               $scope.labelLayoutTypes = [];
+               this.formInit = { title: 'Form title', enabled: true, controls: [], labelLayoutType: null };
                $scope.form = null;
                $scope.currentControl = null;
                $scope.controlPropertiesTemplate = null;
@@ -95,7 +96,8 @@
                               
                formsService.getTypes().then(function (response) {
                     $scope.controlTypes = response.data.controlTypes;
-                    $scope.layoutTypes = response.data.layoutTypes;
+                    $scope.optionLayoutTypes = response.data.optionLayoutTypes;
+                    $scope.labelLayoutTypes = response.data.labelLayoutTypes;
                 }, function() { throw 'Error on getTypes'; });
                              
                if (angular.isUndefined($routeParams.id)) {

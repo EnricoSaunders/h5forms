@@ -1,26 +1,33 @@
-﻿@model H5Forms.Dtos.Form.Controls.OptionList
+﻿@using H5Forms.Dtos.Form.ValidationRules
+@model H5Forms.Dtos.Form.Controls.OptionList
 @{
     Layout = null;
 }
 <div>
-    @Html.Label(Model.ColumnName, Model.Label)
+    @Html.Label(Model.ColumnName, Model.Label)   
     <div>
         <ul>
             @foreach (var option in Model.Options)
             {
-                <li>
+                <li class="@Model.OptionLayoutType">
                     @Html.RadioButton(Model.ColumnName, option.Id, string.Equals(option.Id.ToString(), Model.Value))
                     @option.Value
-                </li>
-                if (Model.AllowOther)
-                {
-                    <li>
-                        @Html.RadioButton(Model.ColumnName, Model.OtherOption.Id, string.Equals(Model.OtherOption.Id.ToString(), Model.Value))
-                        @Model.OtherOption.Value
-                    </li>
-                }
+                </li>                
             }
+                        
+            @if (Model.AllowOther)
+            {
+                <li class="@Model.OptionLayoutType">
+                    @Html.RadioButton(Model.ColumnName, Model.OtherOption.Id, string.Equals(Model.OtherOption.Id.ToString(), Model.Value))
+                    @Model.OtherOption.Value
+                </li>
+            }
+
         </ul>
         @Html.TextBox(Model.ColumnName, Model.OtherValue )
-    </div>
+       @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
+        {
+            <span class="required">*</span>
+        }   
+    </div>   
 </div> 

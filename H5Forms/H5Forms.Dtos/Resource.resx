@@ -138,8 +138,14 @@
   <data name="InvalidValidationType" xml:space="preserve">
     <value>Validation type doesn't exist</value>
   </data>
-  <data name="LengthMessage" xml:space="preserve">
-    <value>The value must be in the described range</value>
+  <data name="LengthBetweenMessage" xml:space="preserve">
+    <value>The field {0} must be in range of {1} and {2}</value>
+  </data>
+  <data name="LengthFromMessage" xml:space="preserve">
+    <value>The field {0} must have a min length of {1}</value>
+  </data>
+  <data name="LengthToMessage" xml:space="preserve">
+    <value>The field {0} must have a max length of {1}</value>
   </data>
   <data name="OptionListLabel" xml:space="preserve">
     <value>OptionList label</value>
@@ -148,7 +154,7 @@
     <value>Other</value>
   </data>
   <data name="RequiredMessage" xml:space="preserve">
-    <value>This field is required</value>
+    <value>The field {0}  is required</value>
   </data>
   <data name="SecondOption" xml:space="preserve">
     <value>Second option</value>

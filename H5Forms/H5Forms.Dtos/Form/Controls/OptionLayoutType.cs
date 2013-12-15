@@ -1,6 +1,6 @@
 ﻿namespace H5Forms.Dtos.Form.Controls
 {
-    public enum LayoutType
+    public enum OptionLayoutType
     {
         OneColumn = 1,
         TwoColumns,

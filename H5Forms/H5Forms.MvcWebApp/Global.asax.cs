@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using H5Forms.BusinessLogic;
+using H5Forms.Dtos.Form;
 using H5Forms.Dtos.Form.Controls;
 using H5Forms.Dtos.Form.ValidationRules;
 using H5Forms.Infrastructure;
@@ -27,8 +28,15 @@ namespace H5Forms.MvcWebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            #region Custom Model Binders
+
             ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(Control), new ControlBinder()));
             ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(ValidationRule), new ValidationBinder()));
+            ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(FormEntry), new FormEntryBinder()));
+
+            #endregion
+
+
 
 
             ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());

@@ -4,11 +4,11 @@
 <div>
     <label>{{control.label}}</label>
     <ul class="option-list">
-        <li ng-repeat="option in control.options" ng-class="control.layoutType">
+        <li ng-repeat="option in control.options" ng-class="control.optionLayoutType">
             <input type="radio" ng-value="option.id" name="optVValue" ng-model="control.value" ng-disabled="true" />
             {{option.value}}
         </li>
-        <li ng-show="control.allowOther">
+        <li ng-show="control.allowOther" ng-class="control.optionLayoutType">
             <input type="radio" name="optVValue" ng-value="control.otherOption.id" ng-model="control.value" ng-disabled="true" />
             {{control.otherOption.value}}
         </li>

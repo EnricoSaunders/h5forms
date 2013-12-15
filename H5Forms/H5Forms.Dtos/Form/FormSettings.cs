@@ -2,8 +2,10 @@
 {
     public static class FormSettings
     {
-        public  const string COLUMN_PREFIX = "Column_{0}";
+        public const string COLUMN_PREFIX = "Control_";
 
-        public const  string SELECTED_VALUES_SEPARATOR = "|";
+        public const char SELECTED_VALUES_SEPARATOR = '|';
+
+        public const  string FORM_ID_NAME = "FormId";        
     }
 }

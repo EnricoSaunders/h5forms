@@ -46,7 +46,6 @@
     <Compile Include="Common\Response.cs" />
     <Compile Include="Common\Result.cs" />
     <Compile Include="Common\ValidationException.cs" />
-    <Compile Include="Converters\CustomCreationConverter.cs" />
     <Compile Include="Converters\ValidationConverter.cs" />
     <Compile Include="Converters\ControlConverter.cs" />
     <Compile Include="Converters\JsonCreationConverter.cs" />
@@ -58,12 +57,14 @@
     <Compile Include="Form\Controls\Factories\BasicControlFactory.cs" />
     <Compile Include="Form\Controls\Factories\IControlFactory.cs" />
     <Compile Include="Form\Controls\FreeText.cs" />
-    <Compile Include="Form\Controls\LayoutType.cs" />
+    <Compile Include="Form\Controls\LabelLayoutType.cs" />
+    <Compile Include="Form\Controls\OptionLayoutType.cs" />
     <Compile Include="Form\Controls\Option.cs" />
     <Compile Include="Form\Controls\OptionsControls.cs" />
     <Compile Include="Form\Controls\OptionList.cs" />
     <Compile Include="Form\Controls\TextBox.cs" />
     <Compile Include="Form\Controls\ValueControl.cs" />
+    <Compile Include="Form\FormEntry.cs" />
     <Compile Include="Form\Form.cs" />
     <Compile Include="Form\FormSettings.cs" />
     <Compile Include="Form\ValidationRules\ValidationType.cs" />

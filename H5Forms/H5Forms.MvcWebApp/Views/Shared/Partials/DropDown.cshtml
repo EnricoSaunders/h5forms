@@ -1,23 +1,28 @@
-﻿@model H5Forms.Dtos.Form.Controls.DropDown
+﻿@using H5Forms.Dtos.Form.ValidationRules
+@model H5Forms.Dtos.Form.Controls.DropDown
 @{
     Layout = null;
 }
 <div>
-    @Html.Label(Model.ColumnName, Model.Label)
+    @Html.Label(Model.ColumnName, Model.Label)    
     <div>
         @Html.DropDownList(Model.ColumnName, 
-                           new List<SelectListItem>
-                           {
-                               new SelectListItem
-                               {
-                                   Value = Model.EmptyOption.Id.ToString(), 
-                                   Text = Model.EmptyOption.Value, Selected = string.Equals(Model.Value, Model.EmptyOption.Id.ToString())
-                               }
-                           }.Union(Model.Options.Select(o => 
-                               new SelectListItem
-                               {
-                                   Value = o.Id.ToString(), 
-                                   Text = o.Value, Selected = string.Equals(Model.Value, o.Id.ToString())
-                               })))
-    </div>
+            new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Value = string.Empty, 
+                    Text = Model.EmptyOption.Value, Selected = string.Equals(Model.Value, Model.EmptyOption.Id.ToString())
+                }
+            }.Union(Model.Options.Select(o => 
+                new SelectListItem
+                {
+                    Value = o.Id.ToString(), 
+                    Text = o.Value, Selected = string.Equals(Model.Value, o.Id.ToString())
+                })))
+        @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
+        {
+            <span class="required">*</span>
+        }   
+    </div>   
 </div> 

@@ -1,10 +1,10 @@
 ﻿@{
     Layout = null;
 }
-<label>{{control.label}}</label>
+<label >{{control.label}}</label>
 <ul class="check-list">
-    <li ng-repeat="option in control.options" ng-class="control.layoutType">       
-        <input type="checkbox" ng-disabled="true"  ng-checked="control.selectedValues.indexOf(option.id) != -1" />        
+    <li ng-repeat="option in control.options" ng-class="control.optionLayoutType">
+        <input type="checkbox" ng-disabled="true" ng-checked="control.selectedValues.indexOf(option.id) != -1" />
         {{option.value}}
     </li>
 </ul>

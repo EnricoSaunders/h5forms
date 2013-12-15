@@ -9,5 +9,10 @@ namespace H5Forms.Dtos.Form.ValidationRules
         {
             return !IsRequired || !string.IsNullOrEmpty(value);
         }
+
+        public override string Message(Controls.ValueControl control)
+        {
+            return string.Format(Resource.RequiredMessage, control.Label);
+        }
     }
 }

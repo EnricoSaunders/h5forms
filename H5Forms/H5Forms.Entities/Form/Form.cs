@@ -8,7 +8,8 @@ namespace H5Forms.Entities.Form
         public string ColumnName { get; set; }
         public string Title { get; set; }
         public string Controls { get; set; }
+        public int LabelLayoutType { get; set; }
         public virtual  User User { get; set; }
-        public virtual IList<FormEntry> FormEntries { get; set; }
+        //public virtual IList<FormEntry> FormEntries { get; set; }       
     }
 }

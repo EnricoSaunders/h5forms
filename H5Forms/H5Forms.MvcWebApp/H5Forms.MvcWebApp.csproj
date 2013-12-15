@@ -173,6 +173,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Binders\FormEntryBinder.cs" />
     <Compile Include="Models\Binders\ValidationBinder.cs" />
     <Compile Include="Models\Binders\ControlBinder.cs" />
     <Compile Include="Models\H5FormSession.cs" />
@@ -340,6 +341,7 @@
     <Content Include="Views\Shared\Partials\FreeText.cshtml" />
     <Content Include="Views\Shared\Partials\OptionList.cshtml" />
     <Content Include="Views\Shared\Partials\TextBox.cshtml" />
+    <Content Include="Views\Shared\ValidationSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

@@ -10,3 +10,7 @@
         <input type="checkbox" ng-model="form.enabled" />
     </div>
 </div>
+<div>
+    <label>Label layout</label>
+    <select ng-model="form.labelLayoutType" ng-options="labelLayout for labelLayout in labelLayoutTypes" class="form-control"></select>
+</div>

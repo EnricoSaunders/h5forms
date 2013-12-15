@@ -1,16 +1,22 @@
-﻿@using H5Forms.Dtos.Form.Controls
+﻿@using H5Forms.Dtos.Form
+@using H5Forms.Dtos.Form.Controls
+@using H5Forms.MvcWebApp.Areas.HelpPage
 @model H5Forms.Dtos.Form.Form
 
 @{
     ViewBag.Title = "Test";
 }
 
-<div class="form">
+<div class="@string.Format("form labelLayout{0}", Model.LabelLayoutType)">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+        Html.RenderPartial("ValidationSummary", @ViewData.ModelState);
+        
+        
 
+        @Html.Hidden(FormSettings.FORM_ID_NAME, Model.Id)
+        ;
         <div class="title">
             <h1>@Model.Title</h1>
         </div>

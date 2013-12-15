@@ -9,8 +9,7 @@ namespace H5Forms.Dtos.Form.Controls
     public class ValueControl : Control
     {       
         public string Label { get; set; }
-        public string Value { get; set; }
-        //[JsonConverter(typeof(ValidationConverter))]
+        public string Value { get; set; }        
         public IList<ValidationRule> ValidationRules { get; set; }
         public bool IsValid()
         {
@@ -26,7 +25,7 @@ namespace H5Forms.Dtos.Form.Controls
 
                 foreach (var vr in ValidationRules)
                 {
-                    if (!vr.IsValid(Value)) result.Add(vr.Message);
+                    if (!vr.IsValid(Value)) result.Add(vr.Message(this));
                 }
 
                 return result;

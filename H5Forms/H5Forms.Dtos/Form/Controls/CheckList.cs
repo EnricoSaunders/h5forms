@@ -6,6 +6,6 @@ namespace H5Forms.Dtos.Form.Controls
     {
         public IList<int> SelectedValues { get; set; }
 
-        public LayoutType LayoutType { get; set; }
+        public OptionLayoutType OptionLayoutType { get; set; }
     }
 }

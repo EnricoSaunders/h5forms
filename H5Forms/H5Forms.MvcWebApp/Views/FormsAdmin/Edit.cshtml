@@ -20,7 +20,7 @@
                     <div>Preview!</div>
                 </pane>
                 <pane title="Designer" selected="true">
-                    <form-view title="{{form.title}}" mode="design">
+                    <form-view title="{{form.title}}" mode="design" label-layout-type="{{form.labelLayoutType}}">
                         <control ng-repeat="control in form.controls"></control>
                     </form-view>
                 </pane>

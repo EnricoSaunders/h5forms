@@ -2,7 +2,7 @@
 {
     public class OptionList : OptionsControl
     {
-        public LayoutType LayoutType { get; set; }
+        public OptionLayoutType OptionLayoutType { get; set; }
         public bool AllowOther { get; set; }
         public Option OtherOption { get; set; }
         public string OtherValue { get; set; }

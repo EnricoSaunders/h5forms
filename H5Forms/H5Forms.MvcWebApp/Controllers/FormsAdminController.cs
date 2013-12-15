@@ -113,7 +113,8 @@ namespace H5Forms.MvcWebApp.Controllers
                         new
                         {
                             ControlTypes = _formAdmin.GetControlTypes(),
-                            LayoutTypes = _formAdmin.GetLayoutTypes()
+                            OptionLayoutTypes = _formAdmin.GetOptionLayoutTypes(),
+                            LabelLayoutTypes = _formAdmin.GetLabelLayoutTypes()
                         }
                 );
         }

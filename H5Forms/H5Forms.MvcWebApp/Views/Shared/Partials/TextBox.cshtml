@@ -1,10 +1,15 @@
-﻿@model H5Forms.Dtos.Form.Controls.TextBox
+﻿@using H5Forms.Dtos.Form.ValidationRules
+@model H5Forms.Dtos.Form.Controls.TextBox
 @{
     Layout = null;
 }
 <div>
-    @Html.Label(Model.ColumnName, Model.Label)
+    @Html.Label(Model.ColumnName, Model.Label)   
     <div>
         @Html.TextBox(Model.ColumnName, Model.Value, new { Style = string.Format("width: {0}px", Model.Size) })
-    </div>
+       @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
+        {
+            <span class="required">*</span>
+        }   
+    </div>  
 </div> 

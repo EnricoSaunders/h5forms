@@ -12,7 +12,7 @@ namespace H5Forms.BusinessLogic
 {
     public class FormAdmin
     {
-        private IH5FormsContext _h5FormsContext;
+        private readonly IH5FormsContext _h5FormsContext;
 
         #region Contructor
 
@@ -33,10 +33,16 @@ namespace H5Forms.BusinessLogic
             return Enum.GetNames(typeof (ControlType));
         }
 
-        public IEnumerable<string> GetLayoutTypes()
+        public IEnumerable<string> GetOptionLayoutTypes()
         {
-            return Enum.GetNames(typeof(LayoutType));
-        }            
+            return Enum.GetNames(typeof(OptionLayoutType));
+        }
+
+        public IEnumerable<string> GetLabelLayoutTypes()
+        {
+            return Enum.GetNames(typeof(LabelLayoutType));
+        }
+                 
 
         public IList<BasicForm> GetForms(string user)
         {
@@ -68,6 +74,7 @@ namespace H5Forms.BusinessLogic
                 UpdateDate = DateTime.Now,
                 Enabled = formDto.Enabled,
                 Title = formDto.Title,
+                LabelLayoutType = (int)formDto.LabelLayoutType,
                 Controls = Mapper.Map<Form, Entities.Form.Form>(formDto).Controls                                
             };
             
@@ -76,7 +83,7 @@ namespace H5Forms.BusinessLogic
 
             _h5FormsContext.SaveChanges();
 
-            form.Hash = HashHelper.Hash(string.Format("{0}{1}{2}", form.Id, formDto.User.Nick, form.CreateDate)).Replace("/", string.Empty);
+            form.Hash = HashHelper.Hash(string.Format("{0}{1}{2}", form.Id, formDto.User.Nick, form.CreateDate)).Replace("/", string.Empty).Replace("+", string.Empty).Replace("=", string.Empty);
 
             _h5FormsContext.SaveChanges();
         }
@@ -87,10 +94,27 @@ namespace H5Forms.BusinessLogic
 
             form.Title = formDto.Title;
             form.UpdateDate = DateTime.Now;
-            form.Enabled = formDto.Enabled;            
+            form.Enabled = formDto.Enabled;
+            form.LabelLayoutType = (int)formDto.LabelLayoutType;
             form.Controls = Mapper.Map<Form, Entities.Form.Form>(formDto).Controls;
             _h5FormsContext.SaveChanges();
         }
-      
+
+        public IList<string> AddEntry(FormEntry formEntry)
+        {
+            var form = _h5FormsContext.Forms.Single(f => f.Id == formEntry.FormId);
+            var formDto = Mapper.Map<Entities.Form.Form, Form>(form);
+            var result = default(IList<string>);
+
+            formDto.SetValues(formEntry);
+            result = formDto.Validate();
+
+            if (result.Count > 0)
+                return result;
+
+            // _formEntryRepository.Add(formEntry);
+
+            return result;
+        }       
     }
 }

@@ -1,18 +1,23 @@
-﻿@model H5Forms.Dtos.Form.Controls.CheckList
+﻿@using H5Forms.Dtos.Form.ValidationRules
+@model H5Forms.Dtos.Form.Controls.CheckList
 @{
     Layout = null;
 }
 <div>
-    @Html.Label(Model.ColumnName, Model.Label)
+    @Html.Label(Model.ColumnName, Model.Label)   
     <div>
         <ul>
             @foreach (var option in Model.Options)
             {
-                <li>
-                    <input type="checkbox" name="@Model.ColumnName" value="@option.Id" />
+                <li class="@Model.OptionLayoutType">
+                    <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" />
                     @option.Value
                 </li>                
-            }
-        </ul>        
-    </div>
+            }          
+        </ul>
+        @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
+        {
+            <span class="required">*</span>
+        }              
+    </div>   
 </div> 

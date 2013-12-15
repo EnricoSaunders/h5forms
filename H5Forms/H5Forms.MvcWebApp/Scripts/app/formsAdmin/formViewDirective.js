@@ -5,7 +5,8 @@
                transclude: true,               
                templateUrl: 'FormsAdmin/Controls/formView.cshtml',
                scope: {
-                   title: '@'
+                   title: '@',
+                   labelLayoutType: '@',
                },
                controller: [
                    '$scope',                  

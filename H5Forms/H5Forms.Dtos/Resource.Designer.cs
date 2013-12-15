@@ -124,11 +124,29 @@ namespace H5Forms.Dtos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value must be in the described range.
+        ///   Looks up a localized string similar to The field {0} must be in range of {1} and {2}.
         /// </summary>
-        internal static string LengthMessage {
+        internal static string LengthBetweenMessage {
             get {
-                return ResourceManager.GetString("LengthMessage", resourceCulture);
+                return ResourceManager.GetString("LengthBetweenMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The field {0} must have a min length of {1}.
+        /// </summary>
+        internal static string LengthFromMessage {
+            get {
+                return ResourceManager.GetString("LengthFromMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The field {0} must have a max length of {1}.
+        /// </summary>
+        internal static string LengthToMessage {
+            get {
+                return ResourceManager.GetString("LengthToMessage", resourceCulture);
             }
         }
         
@@ -151,7 +169,7 @@ namespace H5Forms.Dtos {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This field is required.
+        ///   Looks up a localized string similar to The field {0}  is required.
         /// </summary>
         internal static string RequiredMessage {
             get {
