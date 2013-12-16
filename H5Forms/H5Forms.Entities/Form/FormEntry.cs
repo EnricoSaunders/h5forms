@@ -1,7 +1,11 @@
-﻿namespace H5Forms.Entities.Form
+﻿using System.Collections.Generic;
+
+namespace H5Forms.Entities.Form
 {
     public class FormEntry : EntityBase
     {
-        public string JsonValue { get; set; }
+        public int FormId { get; set; }
+
+        public Dictionary<string, string> ControlValues { get; set; }  
     }
 }

@@ -2,6 +2,8 @@
 {
     public static class FormSettings
     {
+        public const string TABLE_PREFIX = "FormEntries_";
+
         public const string COLUMN_PREFIX = "Control_";
 
         public const char SELECTED_VALUES_SEPARATOR = '|';

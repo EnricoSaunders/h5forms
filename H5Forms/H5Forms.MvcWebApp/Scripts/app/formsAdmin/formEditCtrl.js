@@ -9,6 +9,7 @@
                $scope.optionLayoutTypes = [];
                $scope.labelLayoutTypes = [];
                this.formInit = { title: 'Form title', enabled: true, controls: [], labelLayoutType: null };
+               $scope.lastControlId = 0;
                $scope.form = null;
                $scope.currentControl = null;
                $scope.controlPropertiesTemplate = null;
@@ -33,16 +34,15 @@
                
                $scope.addControl = function (controlType) {
                    formsService.createControl(controlType).then(function (response) {
-                       var control = response.data.data;                       
-                       var lastId = 1;
-
+                       var control = response.data.data;
+                       
                        $scope.form.controls.forEach(function (ctrl) {
-                           if (ctrl.id > lastId) {
-                               lastId = ctrl.id;
+                           if (ctrl.id > $scope.lastControlId) {
+                               $scope.lastControlId = ctrl.id;
                            }
                        });
 
-                       control.id = lastId + 1;
+                       control.id = $scope.lastControlId + 1;
 
                        $scope.form.controls.push(control);
                    }, function () { throw 'Error on createControl'; });
@@ -88,6 +88,8 @@
                    } else {
                        $scope.currentControl.selectedValues.splice($scope.currentControl.selectedValues.indexOf(id), 1);
                    }
+
+                   $scope.currentControl.value = $scope.currentControl.selectedValues.join('|');
                };
                
                //#endregion
@@ -105,6 +107,13 @@
                } else {
                    formsService.getForm($routeParams.id).then(function (response) {
                        $scope.form = response.data.data;
+                       
+                       $scope.form.controls.forEach(function (ctrl) {
+                           if (ctrl.id > $scope.lastControlId) {
+                               $scope.lastControlId = ctrl.id;
+                           }
+                       });
+                       
                    }, function () { throw 'Error on getForm'; });
                }               
 

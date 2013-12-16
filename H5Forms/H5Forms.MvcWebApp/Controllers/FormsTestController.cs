@@ -27,12 +27,15 @@ namespace H5Forms.MvcWebApp.Controllers
         [HttpPost]
         public ActionResult Test(FormEntry formEntry)
         {
+            ModelState.Clear();
+
             var result = _formAdmin.AddEntry(formEntry);
             var form = _formAdmin.GetForm(formEntry.FormId);           
             
             foreach (var message in result)
             {
                 ModelState.AddModelError(string.Empty, message);
+                form.SetValues(formEntry);
             }
 
             return View(form);

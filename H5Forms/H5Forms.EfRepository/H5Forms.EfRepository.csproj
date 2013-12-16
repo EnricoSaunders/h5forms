@@ -56,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\H5Forms.Dtos\H5Forms.Dtos.csproj">
+      <Project>{6498cbd2-c1e9-4541-a47d-7d3734730d7a}</Project>
+      <Name>H5Forms.Dtos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\H5Forms.Entities\H5Forms.Entities.csproj">
       <Project>{1fa86f89-10b9-4f28-bc35-557e27bf99c6}</Project>
       <Name>H5Forms.Entities</Name>

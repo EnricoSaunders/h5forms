@@ -1,4 +1,5 @@
-﻿@using H5Forms.Dtos.Form.ValidationRules
+﻿@using H5Forms.Dtos.Form
+@using H5Forms.Dtos.Form.ValidationRules
 @model H5Forms.Dtos.Form.Controls.CheckList
 @{
     Layout = null;
@@ -10,7 +11,15 @@
             @foreach (var option in Model.Options)
             {
                 <li class="@Model.OptionLayoutType">
-                    <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" />
+                    @if (!string.IsNullOrEmpty(Model.Value) && Model.Value.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR}).Any(v => string.Equals(v, option.Id.ToString())))
+                    {
+                         <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" checked="checked"/>
+                    }
+                    else
+                    {
+                         <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" />
+                    }
+                                                              
                     @option.Value
                 </li>                
             }          
