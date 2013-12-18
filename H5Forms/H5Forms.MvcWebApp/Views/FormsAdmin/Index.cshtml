@@ -4,7 +4,7 @@
 }
 
 <div id="formBuilder" ng-app="h5Forms.formsAdmin">
-    @RenderPage(Url.Content("~/Views/FormsAdmin/Bundle.cshtml"))
+    @RenderPage(Url.Content("~/Views/FormsAdmin/Bundle.cshtml"))    
     <div ng-view></div>
 </div>
 
@@ -19,4 +19,5 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/app/formsAdmin/navigationService.js")"> </script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/app/formsAdmin/formViewDirective.js")"> </script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/app/shared/tabsDirective.js")"> </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/shared/loadingDirective.js")"> </script>
 }

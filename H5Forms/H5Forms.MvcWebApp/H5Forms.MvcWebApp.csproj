@@ -197,6 +197,7 @@
     <Content Include="Content\images\add.png" />
     <Content Include="Content\images\edit.png" />
     <Content Include="Content\images\external_link.gif" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\remove.png" />
     <Content Include="Content\ng-grid.css" />
     <Content Include="Content\ng-grid.min.css" />
@@ -284,6 +285,7 @@
     <Content Include="Scripts\app\formsAdmin\formsAdminModule.js" />
     <Content Include="Scripts\app\shared\formsService.js" />
     <Content Include="Scripts\app\formsAdmin\formViewDirective.js" />
+    <Content Include="Scripts\app\shared\loadingDirective.js" />
     <Content Include="Scripts\app\shared\tabsDirective.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
@@ -292,6 +294,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />

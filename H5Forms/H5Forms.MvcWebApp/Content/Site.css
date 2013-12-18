@@ -183,3 +183,15 @@ iframe {
      padding-right: 5px;
     vertical-align: top;
  }
+
+.loading {
+   background: url("Images/loading.gif") no-repeat center;
+    padding: 40px;
+    text-align: center;
+    vertical-align: middle;
+    width: 150px;
+    position: relative;
+    top: 40%;
+    
+    left: 45%; 
+}
