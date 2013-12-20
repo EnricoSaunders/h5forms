@@ -42,6 +42,13 @@
                            url: '/FormsAdmin/UpdateForm',
                            data: { form: form }
                        });
-                   }
+                   },
+                   getFormEntries: function (id) {
+                       return $http({
+                           method: 'POST',
+                           url: '/FormsAdmin/GetFormEntries',
+                           data: { formId: id }
+                       });
+                   },
                };                                                        
        }]);

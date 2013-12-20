@@ -8,6 +8,8 @@
 
         public const char SELECTED_VALUES_SEPARATOR = '|';
 
+        public const char SELECTED_VALUES_CLIENT_SEPARATOR = ',';
+
         public const  string FORM_ID_NAME = "FormId";        
     }
 }

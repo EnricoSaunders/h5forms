@@ -140,6 +140,64 @@ namespace H5Forms.BusinessLogic
              _h5FormsContext.AddEntry(formEntry);
 
             return result;
-        }       
+        }
+
+        public FormEntries GetFormEntries(int formId)
+        {
+            var form = _h5FormsContext.Forms.Single(f => f.Id == formId);
+            var formDto = Mapper.Map<Entities.Form.Form, Form>(form);
+
+            return new FormEntries
+            {
+                Columns = formDto.Controls.OfType<ValueControl>()
+                                          .Select(c =>  new {c.ColumnName, c.Label})
+                                          .ToDictionary(c => c.ColumnName, c=> c.Label),
+                Entries = _h5FormsContext.GetEntries(formId).Select(e => GeEntryFormated(formDto, e)).ToList()
+            };    
+        }
+
+        private Dictionary<string, string> GeEntryFormated(Form formDto, Entities.Form.FormEntry entry)
+        {
+            var result = new Dictionary<string, string>();
+
+            foreach (var kv in entry.ControlValues)
+            {
+                var controlId = int.Parse(kv.Key.Replace(FormSettings.COLUMN_PREFIX, string.Empty));
+                var control = formDto.Controls.Single(c => c.Id == controlId);
+                var optionValues = kv.Value;
+
+                if (control is OptionsControl)
+                {
+                    var optionsControl = (control as OptionsControl);
+
+                    switch (control.ControlType)
+                    {
+                        case ControlType.OptionList:
+                        {
+                            var values = optionValues.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR}).ToArray();
+                            var option = optionsControl.Options.SingleOrDefault(o => o.Id == int.Parse(values[0]));
+
+                            if (!string.IsNullOrEmpty(values[0]) && option != null)
+                                values[0] = option.Value;
+
+                            optionValues = string.Join(FormSettings.SELECTED_VALUES_CLIENT_SEPARATOR.ToString(), values.Where(v => !string.IsNullOrEmpty(v)));
+                        }
+
+                            break;
+                        default:
+                        {
+                            var optionIds = optionValues.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR}).Where(id => !string.IsNullOrEmpty(id)).Select(id => int.Parse(id)).ToArray();
+                            optionValues = string.Join(FormSettings.SELECTED_VALUES_CLIENT_SEPARATOR.ToString(), optionsControl.Options.Where(o => optionIds.Any(oi => oi == o.Id)).Select(o => o.Value).ToArray());
+
+                        }
+                            break;
+                    }
+                }
+
+                result[kv.Key] = optionValues;
+            }
+
+            return result;
+        }
     }
 }

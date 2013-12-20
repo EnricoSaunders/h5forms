@@ -199,6 +199,7 @@
     <Content Include="Content\images\external_link.gif" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\remove.png" />
+    <Content Include="Content\images\report.png" />
     <Content Include="Content\ng-grid.css" />
     <Content Include="Content\ng-grid.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -279,6 +280,7 @@
     <Content Include="Scripts\angularJs\angular-route.min.js" />
     <Content Include="Scripts\angularJs\angular-v1.2.2.min.js" />
     <Content Include="Scripts\angularJs\ng-grid-2.0.7.min.js" />
+    <Content Include="Scripts\app\formsAdmin\formReportCtrl.js" />
     <Content Include="Scripts\app\formsAdmin\navigationService.js" />
     <Content Include="Scripts\app\formsAdmin\formsListCtrl.js" />
     <Content Include="Scripts\app\formsAdmin\formEditCtrl.js" />
@@ -345,6 +347,7 @@
     <Content Include="Views\Shared\Partials\OptionList.cshtml" />
     <Content Include="Views\Shared\Partials\TextBox.cshtml" />
     <Content Include="Views\Shared\ValidationSummary.cshtml" />
+    <Content Include="Views\FormsAdmin\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

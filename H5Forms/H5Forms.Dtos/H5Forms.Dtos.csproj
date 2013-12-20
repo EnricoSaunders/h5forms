@@ -64,6 +64,7 @@
     <Compile Include="Form\Controls\OptionList.cs" />
     <Compile Include="Form\Controls\TextBox.cs" />
     <Compile Include="Form\Controls\ValueControl.cs" />
+    <Compile Include="Form\FormEntries.cs" />
     <Compile Include="Form\FormEntry.cs" />
     <Compile Include="Form\Form.cs" />
     <Compile Include="Form\FormSettings.cs" />

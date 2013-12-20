@@ -141,6 +141,27 @@ namespace H5Forms.MvcWebApp.Controllers
 
         #endregion
 
-       
+        #region FormEntries
+        
+        [HttpPost]
+        public ActionResult GetFormEntries(int formId)
+        {
+            var response = new Response<FormEntries> { Result = new Result() { HasErrors = false, Messages = new List<string>() } };
+
+            try
+            {
+                response.Data = _formAdmin.GetFormEntries(formId);
+            }
+            catch (Exception)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(Resource.GeneralError);
+            }
+
+            return this.JsonNet(response);
+        }
+
+
+        #endregion
     }
 }

@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using H5Forms.Dtos.Form;
 using H5Forms.Entities.Interfaces;
 using System.Data.Entity;
+using FormEntry = H5Forms.Entities.Form.FormEntry;
 
 namespace H5Forms.EfRepository
 {
@@ -103,6 +106,61 @@ namespace H5Forms.EfRepository
             query.Append(")");
 
             Database.ExecuteSqlCommand(query.ToString());
+        }
+
+        public IList<Entities.Form.FormEntry> GetEntries(int formId)
+        {
+            var result = new List<FormEntry>();
+            var query = new StringBuilder();
+            var tableName = string.Format("{0}{1}", FormSettings.TABLE_PREFIX, formId);
+
+            query.Append(string.Format("select column_name from information_schema.columns where table_name = '{0}'", tableName));
+            var tableColumns = Database.SqlQuery<string>(query.ToString()).Where(c => !string.Equals(c, "Id") && !string.Equals(c, "FormId")).ToList();
+            query.Clear();
+            query.Append(string.Format("Select Id, FormId "));
+
+            foreach (var column in tableColumns)
+            {
+                query.Append(string.Format(", {0}", column));
+            }
+
+            query.Append(string.Format(" from {0}", tableName));
+
+
+            try
+            {
+                Database.Connection.Open();
+
+                var cm = Database.Connection.CreateCommand();
+
+                cm.CommandType = CommandType.Text;
+                cm.CommandText = query.ToString();
+
+                var reader = cm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var entry = new FormEntry
+                    {
+                        Id = reader.GetInt32(0),
+                        FormId = formId,
+                        ControlValues = tableColumns.ToDictionary(c => c, c => reader[c].ToString())
+                    };
+
+                    result.Add(entry);
+                }
+
+                Database.Connection.Close();
+            }
+            catch (Exception)
+            {
+                if (Database.Connection.State == ConnectionState.Open)
+                 Database.Connection.Close();
+
+                throw;
+            }                       
+
+            return result;
         }
     }
 }

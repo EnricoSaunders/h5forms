@@ -5,7 +5,8 @@
                var sections = {
                    list: '/',
                    create: '/create',
-                   edit: '/edit/'
+                   edit: '/edit/',
+                   report: '/report/'
                };
                return {
                    goToList: function () {
@@ -16,6 +17,9 @@
                    },
                    goToEdit: function (id) {
                        $location.path(sections.edit + id);
+                   },
+                   goToReport: function (id) {
+                       $location.path(sections.report + id);
                    }
                };
            }]);
