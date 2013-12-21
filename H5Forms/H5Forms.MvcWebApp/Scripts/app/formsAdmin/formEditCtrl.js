@@ -13,19 +13,36 @@
                $scope.form = null;
                $scope.currentControl = null;
                $scope.controlPropertiesTemplate = null;
+               $scope.result = {hasErrors: false, messages: []};
+               
 
                $scope.list = function() {
                    navigationService.goToList();
                };
                
                $scope.saveForm = function () {
+                   $scope.result.hasErrors = false;
+
                    if ($scope.form.id) {
                        formsService.updateForm($scope.form).then(function (response) {
-                           navigationService.goToList();
+                           
+                           if (!response.data.result.hasErrors) 
+                               navigationService.goToList();
+                           
+                           $scope.result.hasErrors = true;
+                           $scope.result.messages = response.data.result.messages;
+                           
+
                        }, function () { throw 'Error on saveForm'; });
                    } else {
                        formsService.createForm($scope.form).then(function (response) {
-                           navigationService.goToList();
+                           
+                           if (!response.data.result.hasErrors)
+                               navigationService.goToList();
+                           
+                           $scope.result.hasErrors = true;
+                           $scope.result.messages = response.data.result.messages;
+                           
                        }, function () { throw 'Error on saveForm'; });
                    }                  
                };

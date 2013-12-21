@@ -78,6 +78,11 @@ namespace H5Forms.MvcWebApp.Controllers
                 form.User = new User{Nick = "Test"};
                 _formAdmin.CreateForm(form);
             }
+            catch (ValidationException exception)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(exception.Message);
+            }
             catch (Exception)
             {
                 response.Result.HasErrors = true;
@@ -95,6 +100,11 @@ namespace H5Forms.MvcWebApp.Controllers
             try
             {                
                  _formAdmin.UpdateForm(form);
+            }
+            catch (ValidationException exception)
+            {
+                response.Result.HasErrors = true;
+                response.Result.Messages.Add(exception.Message);
             }
             catch (Exception)
             {

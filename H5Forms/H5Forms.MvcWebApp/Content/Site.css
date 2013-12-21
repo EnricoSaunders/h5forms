@@ -191,9 +191,7 @@ iframe {
     vertical-align: middle;
     width: 150px;
     position: relative;
-    top: 40%;
-    
-    left: 35%; 
+    top: 40%;  
 }
 
 .reportButtons {

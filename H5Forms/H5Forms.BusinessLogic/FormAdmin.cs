@@ -3,7 +3,10 @@ using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 using System.Transactions;
+using System.Web;
 using AutoMapper;
+using H5Forms.BusinessLogic.Helpers;
+using H5Forms.Dtos.Common;
 using H5Forms.Dtos.Form;
 using H5Forms.Dtos.Form.Controls;
 using H5Forms.EfRepository;
@@ -69,6 +72,8 @@ namespace H5Forms.BusinessLogic
 
         public void CreateForm(Form formDto)
         {
+            Validate(formDto);
+
             var form = new Entities.Form.Form
             {
                 User = _h5FormsContext.Users.Single(u => string.Equals(u.Nick, formDto.User.Nick)),
@@ -105,10 +110,12 @@ namespace H5Forms.BusinessLogic
 
                 transaction.Complete();
             }                                  
-        }
+        }      
 
         public void UpdateForm(Form formDto)
         {
+            Validate(formDto);
+
             var form = _h5FormsContext.Forms.Single(f => f.Id == formDto.Id);
 
             form.Title = formDto.Title;
@@ -127,6 +134,9 @@ namespace H5Forms.BusinessLogic
 
         public IList<string> AddEntry(FormEntry formEntryDto)
         {
+            formEntryDto.EntryDate = DateTime.Now;
+            formEntryDto.Ip = HttpContext.Current.Request.GetClientIpAddress();
+
             var form = _h5FormsContext.Forms.Single(f => f.Id == formEntryDto.FormId);
             var formDto = Mapper.Map<Entities.Form.Form, Form>(form);
             var result = default(IList<string>);
@@ -147,13 +157,13 @@ namespace H5Forms.BusinessLogic
         public FormEntries GetFormEntries(int formId)
         {
             var form = _h5FormsContext.Forms.Single(f => f.Id == formId);
-            var formDto = Mapper.Map<Entities.Form.Form, Form>(form);
+            var formDto = Mapper.Map<Entities.Form.Form, Form>(form);           
 
             return new FormEntries
             {
-                Columns = formDto.Controls.OfType<ValueControl>()
-                                          .Select(c =>  new {c.ColumnName, c.Label})
-                                          .ToDictionary(c => c.ColumnName, c=> c.Label),
+                Columns = new[] { new { ColumnName = "EntryDate", Label = Resource.Date }, new { ColumnName = "Ip", Label = Resource.Ip } }
+                                    .Concat(formDto.Controls.OfType<ValueControl>().Select(c => new { c.ColumnName, c.Label }))
+                                    .ToDictionary(c => c.ColumnName, c=> c.Label),
                 Entries = _h5FormsContext.GetEntries(formId).Select(e => GeEntryFormated(formDto, e)).ToList()
             };    
         }
@@ -161,6 +171,9 @@ namespace H5Forms.BusinessLogic
         private Dictionary<string, string> GeEntryFormated(Form formDto, Entities.Form.FormEntry entry)
         {
             var result = new Dictionary<string, string>();
+
+            result["EntryDate"] = entry.EntryDate.ToString();
+            result["Ip"] = entry.Ip;
 
             foreach (var kv in entry.ControlValues)
             {
@@ -246,7 +259,12 @@ namespace H5Forms.BusinessLogic
                 FormTitle = form.Title,
                 ExcelPackage = pck
             };
+        }
 
+        private void Validate(Form formDto)
+        {
+            if(formDto.Controls == null || !formDto.Controls.Any(c => c is ValueControl))
+                throw new ValidationException(Resource.ControlsEmpty);
         }
     }
 }

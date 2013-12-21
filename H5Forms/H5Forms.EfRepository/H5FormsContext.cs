@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using H5Forms.Dtos.Form;
@@ -31,7 +30,7 @@ namespace H5Forms.EfRepository
             var query = new StringBuilder();
             var tableName = string.Format("{0}{1}", FormSettings.TABLE_PREFIX, formId);
 
-            query.Append(string.Format("Create table {0}(Id int primary key identity, FormId int ", tableName));
+            query.Append(string.Format("Create table {0}(Id int primary key identity, FormId int, EntryDate datetime, Ip varchar(50) ", tableName));
 
             foreach (var column in columns)
             {
@@ -50,13 +49,13 @@ namespace H5Forms.EfRepository
 
             query.Append(string.Format("select column_name from information_schema.columns where table_name = '{0}'", tableName));
 
-            var tableColumns = Database.SqlQuery<string>(query.ToString()).Where(c => !string.Equals(c, "Id") && !string.Equals(c, "FormId")).ToList();
+            var tableColumns = Database.SqlQuery<string>(query.ToString()).Where(c => !new[] { "Id", "FormId", "EntryDate", "Ip" }.Any(r => string.Equals(c, r))).ToList();
             var columnsToAdd = columns.Where(c => !tableColumns.Any(t => string.Equals(c, t))).ToList();
             var columnsToDrop = tableColumns.Where(c => !columns.Any(t => string.Equals(c, t))).ToList();
 
             query.Clear();
 
-            if (columnsToDrop.Count() > 0)
+            if (columnsToDrop.Any())
             {
                 query.Append(string.Format("Alter table {0} drop column ", tableName));
 
@@ -69,7 +68,7 @@ namespace H5Forms.EfRepository
                 Database.ExecuteSqlCommand(cm);
             }
 
-            if (columnsToAdd.Count() > 0)
+            if (columnsToAdd.Any())
             {
                 query.Append(string.Format("Alter table {0} add ", tableName));
 
@@ -88,7 +87,7 @@ namespace H5Forms.EfRepository
             var query = new StringBuilder();
             var tableName = string.Format("{0}{1}", FormSettings.TABLE_PREFIX, entry.FormId);
 
-            query.AppendLine(string.Format("Insert into {0}( FormId", tableName));
+            query.AppendLine(string.Format("Insert into {0}( FormId, EntryDate, Ip", tableName));
 
             foreach (var column in entry.ControlValues.Keys)
             {
@@ -96,7 +95,7 @@ namespace H5Forms.EfRepository
             }
            
             query.Append(")");
-            query.AppendLine(string.Format("Values({0}", entry.FormId));
+            query.AppendLine(string.Format("Values({0},'{1}','{2}' ", entry.FormId, entry.EntryDate.ToString("yyyy/MM/dd hh:mm:ss"), entry.Ip));
 
             foreach (var column in entry.ControlValues.Keys)
             {
@@ -115,9 +114,9 @@ namespace H5Forms.EfRepository
             var tableName = string.Format("{0}{1}", FormSettings.TABLE_PREFIX, formId);
 
             query.Append(string.Format("select column_name from information_schema.columns where table_name = '{0}'", tableName));
-            var tableColumns = Database.SqlQuery<string>(query.ToString()).Where(c => !string.Equals(c, "Id") && !string.Equals(c, "FormId")).ToList();
+            var tableColumns = Database.SqlQuery<string>(query.ToString()).Where(c => !new[] { "Id", "FormId", "EntryDate", "Ip" }.Any(r => string.Equals(c, r))).ToList();
             query.Clear();
-            query.Append(string.Format("Select Id, FormId "));
+            query.Append(string.Format("Select Id, EntryDate, Ip"));
 
             foreach (var column in tableColumns)
             {
@@ -125,7 +124,6 @@ namespace H5Forms.EfRepository
             }
 
             query.Append(string.Format(" from {0}", tableName));
-
 
             try
             {
@@ -142,8 +140,10 @@ namespace H5Forms.EfRepository
                 {
                     var entry = new FormEntry
                     {
-                        Id = reader.GetInt32(0),
+                        Id = reader.GetInt32(0),                        
                         FormId = formId,
+                        EntryDate = reader.GetDateTime(1),
+                        Ip = reader.GetString(2),
                         ControlValues = tableColumns.ToDictionary(c => c, c => reader[c].ToString())
                     };
 
