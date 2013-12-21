@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Transactions;
 using AutoMapper;
@@ -9,6 +10,7 @@ using H5Forms.EfRepository;
 using H5Forms.Entities.Interfaces;
 using System;
 using H5Forms.Infrastructure;
+using OfficeOpenXml;
 
 namespace H5Forms.BusinessLogic
 {
@@ -198,6 +200,53 @@ namespace H5Forms.BusinessLogic
             }
 
             return result;
+        }
+
+        public EntriesExcel EntriesExcel(int formId)
+        {
+            var form = _h5FormsContext.Forms.Single(f => f.Id == formId);
+            var entries = GetFormEntries(formId);
+
+            FileInfo template = new FileInfo(String.Format(@"{0}\ReportTemplates\FormEntriesTemplate.xlsx", AppDomain.CurrentDomain.BaseDirectory));            
+            ExcelPackage pck = new ExcelPackage(template, true);
+            var ws = pck.Workbook.Worksheets[1];
+            var row = 5;
+            var col = 1;
+
+            #region Header
+
+            foreach (var column in entries.Columns)
+            {
+                ws.Cells[row, col].Value = column.Value;
+                col++;
+            }
+
+            ws.Cells[3, 2].Value = form.Title;
+
+            #endregion
+
+            #region Body
+
+            foreach (var entry in entries.Entries)
+            {
+                col = 1;
+                row++;
+
+                foreach (var column in entries.Columns)
+                {                    
+                    ws.Cells[row, col].Value = entry[column.Key];
+                    col++;
+                }
+            }
+
+            #endregion
+
+            return new EntriesExcel
+            {
+                FormTitle = form.Title,
+                ExcelPackage = pck
+            };
+
         }
     }
 }

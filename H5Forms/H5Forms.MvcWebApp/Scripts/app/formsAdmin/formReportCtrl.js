@@ -7,6 +7,7 @@
            function ($scope, $routeParams, formsService, navigationService) {
                $scope.entries = [];
                $scope.columnDefs = [];
+               $scope.formId = $routeParams.id;
                                             
                $scope.list = function () {
                    navigationService.goToList();
@@ -28,7 +29,7 @@
                
                //#endregion
                
-               //#region Init
+               //#region Init               
                
                formsService.getFormEntries($routeParams.id).then(function (response) {
                    var gridColumns = [];

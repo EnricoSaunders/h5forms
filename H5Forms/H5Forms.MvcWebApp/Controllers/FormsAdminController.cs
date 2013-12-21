@@ -8,6 +8,7 @@ using H5Forms.Dtos.Form;
 using H5Forms.Dtos.Form.Controls;
 using H5Forms.Dtos.Form.Controls.Factories;
 using H5Forms.Infrastructure;
+using H5Forms.MvcWebApp.Models;
 
 namespace H5Forms.MvcWebApp.Controllers
 {
@@ -160,6 +161,18 @@ namespace H5Forms.MvcWebApp.Controllers
 
             return this.JsonNet(response);
         }
+
+         [HttpPost]
+        public ActionResult EntriesExcel(int formId)
+        {
+            var report = _formAdmin.EntriesExcel(formId);
+
+            return new ExcelResult
+            {
+                ExcelPackage = report.ExcelPackage,
+                FileName = string.Format(Resource.EntriesExcelFileName, report.FormTitle)
+            };
+        }        
 
 
         #endregion

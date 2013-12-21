@@ -3,8 +3,13 @@
 }
 <loading></loading>
 <h1>Form entries</h1>
+<div class="reportButtons">
+    <p><a ng-click="list()" class="btn btn-primary btn-lg" role="button">Back to list</a></p>
 
-
-@*<p><a ng-click="createForm()"   class="btn btn-primary btn-lg" role="button">Create form</a></p>*@
-
+    @using (Html.BeginForm("EntriesExcel", "FormsAdmin"))
+    {
+        <input type="hidden" name="formId" value="{{formId}}" />
+        <input type="submit" value="Export to Excel" class="btn btn-primary btn-lg" />
+    }
+</div>
 <div class="gridStyle" ng-grid="gridOptions"></div>

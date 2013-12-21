@@ -193,5 +193,18 @@ iframe {
     position: relative;
     top: 40%;
     
-    left: 45%; 
+    left: 35%; 
 }
+
+.reportButtons {
+    margin: 10px 0;
+}
+
+.reportButtons p,.reportButtons form {
+    display: inline;  
+}
+
+.reportButtons form {
+    float: right;
+}
+

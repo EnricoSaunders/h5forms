@@ -61,6 +61,15 @@ namespace H5Forms.MvcWebApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to H5Forms_{0}_entries.xls.
+        /// </summary>
+        internal static string EntriesExcelFileName {
+            get {
+                return ResourceManager.GetString("EntriesExcelFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An Error has occurred.
         /// </summary>
         internal static string GeneralError {
