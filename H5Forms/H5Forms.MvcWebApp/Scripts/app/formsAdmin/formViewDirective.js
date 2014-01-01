@@ -7,6 +7,7 @@
                scope: {
                    title: '@',
                    labelLayoutType: '@',
+                   controls: '='
                },
                controller: [
                    '$scope',                  

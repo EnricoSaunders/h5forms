@@ -2,5 +2,5 @@
     Layout = null;
 }
 
-<h1>{{title}}</h1>
-<div ng-transclude class="{{'form-view labelLayout' + labelLayoutType}}"></div>
+<h1>{{title}}</h1>                  
+<ul ng-transclude ui-sortable ng-model="controls" class="{{'form-view labelLayout' + labelLayoutType}}"></ul>

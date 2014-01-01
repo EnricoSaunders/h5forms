@@ -14,7 +14,6 @@ namespace H5Forms.MvcWebApp
                     .Include("~/Content/ng-grid.css")
                     .Include("~/Content/site.css"));
 
-
             bundles.Add(new ScriptBundle("~/bundles/scripts")
                 .Include("~/Scripts/jquery-{version}.js")
                 .Include("~/Scripts/bootstrap/bootstrap.js")

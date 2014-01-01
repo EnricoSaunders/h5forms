@@ -2,7 +2,7 @@
     Layout = null;
 }
 <label >{{control.label}}</label>
-<ul class="check-list">
+<ul class="check-list" ng-attr-title="{{control.title}}">
     <li ng-repeat="option in control.options" ng-class="control.optionLayoutType">
         <input type="checkbox" ng-disabled="true" ng-checked="control.selectedValues.indexOf(option.id) != -1" />
         {{option.value}}

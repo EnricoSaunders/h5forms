@@ -85,8 +85,7 @@ namespace H5Forms.BusinessLogic
                 Controls = Mapper.Map<Form, Entities.Form.Form>(formDto).Controls
             };
 
-            using (TransactionScope transaction = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions() {IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted})){
-                //((IObjectContextAdapter) _h5FormsContext).ObjectContext.Connection.Open();
+            using (TransactionScope transaction = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions() {IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted})){                
 
                 #region Form               
 
@@ -190,10 +189,14 @@ namespace H5Forms.BusinessLogic
                         case ControlType.OptionList:
                         {
                             var values = optionValues.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR}).ToArray();
-                            var option = optionsControl.Options.SingleOrDefault(o => o.Id == int.Parse(values[0]));
 
-                            if (!string.IsNullOrEmpty(values[0]) && option != null)
-                                values[0] = option.Value;
+                            if (!string.IsNullOrEmpty(values[0]))
+                            {
+                                var option = optionsControl.Options.SingleOrDefault(o => o.Id == int.Parse(values[0]));
+
+                                if (option != null)
+                                    values[0] = option.Value;   
+                            }                            
 
                             optionValues = string.Join(FormSettings.SELECTED_VALUES_CLIENT_SEPARATOR.ToString(), values.Where(v => !string.IsNullOrEmpty(v)));
                         }

@@ -61,12 +61,14 @@ namespace H5Forms.EfRepository
 
                 foreach (var column in columnsToDrop)
                 {
-                    query.Append(string.Format("{0}, ", column));
+                    query.Append(string.Format("{0},", column));
                 }
 
-                var cm = query.Remove(query.Length - 2, 1).ToString();
+                var cm = query.Remove(query.Length - 1, 1).ToString();
                 Database.ExecuteSqlCommand(cm);
             }
+
+            query.Clear();
 
             if (columnsToAdd.Any())
             {
@@ -74,10 +76,10 @@ namespace H5Forms.EfRepository
 
                 foreach (var column in columnsToAdd)
                 {
-                    query.Append(string.Format("{0} varchar(max), ", column));
+                    query.Append(string.Format("{0} varchar(max),", column));
                 }
 
-                var cm = query.Remove(query.Length - 2, 1).ToString();
+                var cm = query.Remove(query.Length - 1, 1).ToString();
                 Database.ExecuteSqlCommand(cm);                
             }           
         }

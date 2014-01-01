@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-<div class="control" ng-click="setCurrentControl(control)" ng-class="{'alert alert-warning': currentControl === control  }">
+<li class="control" title="Edit options in the Control Properties area" ng-click="setCurrentControl(control)" ng-class="{'alert alert-warning': currentControl === control  }">
     <div ng-include="'FormsAdmin/Controls/' + control.controlType +'.cshtml'"></div>
-    <span class="delete-control" ng-click="deleteControl(control)"></span>
-</div>
+    <span class="delete-control" title="Delete control" ng-click="deleteControl(control)"></span>
+</li>

@@ -36,9 +36,6 @@ namespace H5Forms.MvcWebApp
 
             #endregion
 
-
-
-
             ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
             ValueProviderFactories.Factories.Add(new JsonNetValueProviderFactory());
 

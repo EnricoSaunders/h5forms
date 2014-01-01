@@ -20,9 +20,11 @@
                     <div>Preview!</div>
                 </pane>
                 <pane title="Designer" selected="true">
-                    <form-view title="{{form.title}}" mode="design" label-layout-type="{{form.labelLayoutType}}">
+                                                            
+                    <form-view title="{{form.title}}" mode="design" controls="form.controls" label-layout-type="{{form.labelLayoutType}}">
                         <control ng-repeat="control in form.controls"></control>
-                    </form-view>
+                    </form-view>   
+                                                                             
                 </pane>
             </tabs>            
             <ul ng-show="result.hasErrors" class="alert alert-danger">

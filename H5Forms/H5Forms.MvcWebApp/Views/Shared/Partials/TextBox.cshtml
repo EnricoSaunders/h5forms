@@ -6,7 +6,7 @@
 <div>
     @Html.Label(Model.ColumnName, Model.Label)   
     <div>
-       @Html.TextBox(Model.ColumnName, Model.Value, new { Style = string.Format("width: {0}px", Model.Size) })
+       @Html.TextBox(Model.ColumnName, Model.Value, new { Style = string.Format("width: {0}px", Model.Size), Title = Model.HoverTitle })
        @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
        {
            <span class="required">*</span>

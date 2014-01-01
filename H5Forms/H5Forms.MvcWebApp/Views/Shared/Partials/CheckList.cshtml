@@ -6,18 +6,19 @@
 }
 <div>
     @Html.Label(Model.ColumnName, Model.Label)   
-    <div>
-        <ul>
-            @foreach (var option in Model.Options)
+    <div>        
+       <ul  title = "@Model.HoverTitle">
+
+                @foreach (var option in Model.Options)
             {
                 <li class="@Model.OptionLayoutType">
                     @if (!string.IsNullOrEmpty(Model.Value) && Model.Value.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR}).Any(v => string.Equals(v, option.Id.ToString())))
                     {
-                         <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" checked="checked"/>
+                        <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" checked="checked"/>
                     }
                     else
                     {
-                         <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" />
+                        <input type="checkbox" name="@Model.ColumnName" id="@Model.ColumnName"  value="@option.Id" />
                     }
                                                               
                     @option.Value

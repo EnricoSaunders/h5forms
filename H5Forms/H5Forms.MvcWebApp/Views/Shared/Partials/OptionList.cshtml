@@ -6,15 +6,15 @@
 <div>
     @Html.Label(Model.ColumnName, Model.Label)   
     <div>
-        <ul>
+        <ul title="@Model.HoverTitle">
             @foreach (var option in Model.Options)
             {
                 <li class="@Model.OptionLayoutType">
                     @Html.RadioButton(Model.ColumnName, option.Id, string.Equals(option.Id.ToString(), Model.Value))
                     @option.Value
-                </li>                
+                </li>
             }
-                        
+
             @if (Model.AllowOther)
             {
                 <li class="@Model.OptionLayoutType">
