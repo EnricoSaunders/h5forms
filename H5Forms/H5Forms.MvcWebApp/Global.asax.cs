@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -32,7 +33,7 @@ namespace H5Forms.MvcWebApp
 
             ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(Control), new ControlBinder()));
             ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(ValidationRule), new ValidationBinder()));
-            ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(FormEntry), new FormEntryBinder()));
+            ModelBinders.Binders.Add(new KeyValuePair<Type, IModelBinder>(typeof(FormEntry), new FormEntryBinder()));           
 
             #endregion
 

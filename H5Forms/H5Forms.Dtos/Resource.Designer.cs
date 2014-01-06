@@ -79,11 +79,38 @@ namespace H5Forms.Dtos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email label.
+        /// </summary>
+        internal static string EmailLabel {
+            get {
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid email format for field {0}.
+        /// </summary>
+        internal static string EmailMessage {
+            get {
+                return ResourceManager.GetString("EmailMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First option.
         /// </summary>
         internal static string FirstOption {
             get {
                 return ResourceManager.GetString("FirstOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Formatted number label.
+        /// </summary>
+        internal static string FormattedNumberLabel {
+            get {
+                return ResourceManager.GetString("FormattedNumberLabel", resourceCulture);
             }
         }
         
@@ -151,6 +178,24 @@ namespace H5Forms.Dtos {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number label.
+        /// </summary>
+        internal static string NumberLabel {
+            get {
+                return ResourceManager.GetString("NumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid  format number for field {0}.
+        /// </summary>
+        internal static string NumberMessage {
+            get {
+                return ResourceManager.GetString("NumberMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OptionList label.
         /// </summary>
         internal static string OptionListLabel {
@@ -201,6 +246,15 @@ namespace H5Forms.Dtos {
         internal static string ThirdOption {
             get {
                 return ResourceManager.GetString("ThirdOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The field {0} must be unique and there is another entry with the same value.
+        /// </summary>
+        internal static string UniqueMessage {
+            get {
+                return ResourceManager.GetString("UniqueMessage", resourceCulture);
             }
         }
     }

@@ -110,6 +110,14 @@ iframe {
     vertical-align:  top;
     padding-right: 7px;
 }
+.formatted-number li {
+    display: inline;
+}
+
+.formatted-number .form-control {
+    display: inline;
+}
+
  .OneColumn {
     display: block;    
 }

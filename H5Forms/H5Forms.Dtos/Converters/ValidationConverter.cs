@@ -17,7 +17,16 @@ namespace H5Forms.Dtos.Converters
                     result = new Length();
                     break;
                 case ValidationType.Required:
-                    result = new H5Forms.Dtos.Form.ValidationRules.Required();
+                    result = new Required();
+                    break;
+                case ValidationType.Email:
+                    result = new Email();
+                    break;
+                case ValidationType.Number:
+                    result = new Number();
+                    break;
+                case ValidationType.FormattedNumber:
+                    result = new FormattedNumber();
                     break;
             }
 

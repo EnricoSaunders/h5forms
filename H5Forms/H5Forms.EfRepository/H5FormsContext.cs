@@ -109,6 +109,69 @@ namespace H5Forms.EfRepository
             Database.ExecuteSqlCommand(query.ToString());
         }
 
+        public bool IsUniqueEntry(int formId, string column, string value)
+        {
+            var otherEntry = GetEntryByValue(formId, column, value);
+
+            return otherEntry == null;
+        }
+
+        public FormEntry GetEntryByValue(int formId, string column, string value)
+        {
+            var result = new List<FormEntry>();
+            var query = new StringBuilder();
+            var tableName = string.Format("{0}{1}", FormSettings.TABLE_PREFIX, formId);
+
+            query.Append(string.Format("select column_name from information_schema.columns where table_name = '{0}'", tableName));
+            var tableColumns = Database.SqlQuery<string>(query.ToString()).Where(c => !new[] { "Id", "FormId", "EntryDate", "Ip" }.Any(r => string.Equals(c, r))).ToList();
+            query.Clear();
+            query.Append(string.Format("Select Id, EntryDate, Ip"));
+
+            foreach (var c in tableColumns)
+            {
+                query.Append(string.Format(", {0}", c));
+            }
+
+            query.Append(string.Format(" from {0} where {1} = '{2}'", tableName, column, value));
+
+            try
+            {
+                Database.Connection.Open();
+
+                var cm = Database.Connection.CreateCommand();
+
+                cm.CommandType = CommandType.Text;
+                cm.CommandText = query.ToString();
+
+                var reader = cm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var entry = new FormEntry
+                    {
+                        Id = reader.GetInt32(0),
+                        FormId = formId,
+                        EntryDate = reader.GetDateTime(1),
+                        Ip = reader.GetString(2),
+                        ControlValues = tableColumns.ToDictionary(c => c, c => reader[c].ToString())
+                    };
+
+                    result.Add(entry);
+                }
+
+                Database.Connection.Close();
+            }
+            catch (Exception)
+            {
+                if (Database.Connection.State == ConnectionState.Open)
+                    Database.Connection.Close();
+
+                throw;
+            }
+
+            return result.Any() ? result[0] : null;
+        }
+
         public IList<Entities.Form.FormEntry> GetEntries(int formId)
         {
             var result = new List<FormEntry>();

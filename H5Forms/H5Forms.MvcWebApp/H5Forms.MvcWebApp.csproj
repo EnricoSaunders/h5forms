@@ -337,6 +337,9 @@
     <Content Include="Views\FormsAdmin\Properties\checkListProperties.cshtml" />
     <Content Include="Views\FormsAdmin\Properties\optionListProperties.cshtml" />
     <Content Include="Views\FormsAdmin\Properties\controlProperties.cshtml" />
+    <Content Include="Views\FormsAdmin\Controls\email.cshtml" />
+    <Content Include="Views\FormsAdmin\Controls\number.cshtml" />
+    <Content Include="Views\FormsAdmin\Controls\formattedNumber.cshtml" />
     <None Include="Views\FormsAdmin\Controls\textBox.cshtml" />
     <None Include="Views\FormsAdmin\Controls\control.cshtml" />
     <None Include="Views\FormsAdmin\Controls\formView.cshtml" />
@@ -354,6 +357,12 @@
     <Content Include="Views\Shared\Partials\TextBox.cshtml" />
     <Content Include="Views\Shared\ValidationSummary.cshtml" />
     <Content Include="Views\FormsAdmin\Report.cshtml" />
+    <Content Include="Views\FormsAdmin\Properties\emailProperties.cshtml" />
+    <Content Include="Views\FormsAdmin\Properties\numberProperties.cshtml" />
+    <Content Include="Views\Shared\Partials\Email.cshtml" />
+    <Content Include="Views\Shared\Partials\Number.cshtml" />
+    <Content Include="Views\Shared\Partials\FormattedNumber.cshtml" />
+    <Content Include="Views\FormsAdmin\Properties\formattedNumberProperties.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

@@ -59,12 +59,15 @@
     <Compile Include="Form\Controls\DropDown.cs" />
     <Compile Include="Form\Controls\Factories\BasicControlFactory.cs" />
     <Compile Include="Form\Controls\Factories\IControlFactory.cs" />
+    <Compile Include="Form\Controls\FormattedNumber.cs" />
     <Compile Include="Form\Controls\FreeText.cs" />
     <Compile Include="Form\Controls\LabelLayoutType.cs" />
+    <Compile Include="Form\Controls\Email.cs" />
     <Compile Include="Form\Controls\OptionLayoutType.cs" />
     <Compile Include="Form\Controls\Option.cs" />
     <Compile Include="Form\Controls\OptionsControls.cs" />
     <Compile Include="Form\Controls\OptionList.cs" />
+    <Compile Include="Form\Controls\Number.cs" />
     <Compile Include="Form\Controls\TextBox.cs" />
     <Compile Include="Form\Controls\ValueControl.cs" />
     <Compile Include="Form\EntriesExcel.cs" />
@@ -72,6 +75,10 @@
     <Compile Include="Form\FormEntry.cs" />
     <Compile Include="Form\Form.cs" />
     <Compile Include="Form\FormSettings.cs" />
+    <Compile Include="Form\ValidationRules\FormattedNumber.cs" />
+    <Compile Include="Form\ValidationRules\Number.cs" />
+    <Compile Include="Form\ValidationRules\RegExRule.cs" />
+    <Compile Include="Form\ValidationRules\Email.cs" />
     <Compile Include="Form\ValidationRules\ValidationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

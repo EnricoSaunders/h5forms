@@ -20,42 +20,35 @@ namespace H5Forms.Dtos.Form
             foreach (var column in formEntry.ControlValues)
             {
                 var controlId = int.Parse(column.Key.Replace(FormSettings.COLUMN_PREFIX,string.Empty));
-                var control = Controls.Single(c => c.Id == controlId);
+                var control = Controls.Single(c => c.Id == controlId) as ValueControl;                
 
-                switch (control.ControlType)
-                {
-                    case ControlType.CheckList:
-                        ((CheckList) control).Value = column.Value;
-                        ((CheckList) control).SelectedValues = new List<int>(column.Value.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR}).Select(v => int.Parse(v)).ToArray());
-                        break;
-                    case ControlType.OptionList:
-                        var values = column.Value.Split(new[] {FormSettings.SELECTED_VALUES_SEPARATOR});
-                        ((OptionList) control).Value = values[0];
-
-                        if (string.Equals(values[0], "-1"))
-                        {
-                            ((OptionList) control).AllowOther = true;
-                            ((OptionList) control).OtherValue = values[1];
-                        }
-
-                        break;
-                    case ControlType.DropDown: case ControlType.TextBox:
-                         ((ValueControl) control).Value = column.Value;
-                        break;
-                }              
+                control.SetValue(column.Value);               
             }
         }
-        public IList<string> Validate()
+        public IList<string> BasicValidation()
         {
             var result = new List<string>();
 
-            foreach (var control in Controls.OfType<ValueControl>().Select(c => (ValueControl)c))
+            foreach (var control in Controls.OfType<ValueControl>().Select(c => c))
             {
                 result.AddRange(control.BrokenRules);
+            }            
+
+            return result;
+        }
+
+        public IList<string> UniqueValidation(Func<int, string, string, bool> isUnique)
+        {
+            var result = new List<string>();
+
+            foreach (var control in Controls.OfType<ValueControl>().Where(c => c.IsUnique).Select(c => c))
+            {
+                if (!isUnique(Id, control.ColumnName, control.Value))
+                    result.Add(string.Format(Resource.UniqueMessage, control.Label));
             }
 
             return result;
-        }      
+        }
     }
 }
 

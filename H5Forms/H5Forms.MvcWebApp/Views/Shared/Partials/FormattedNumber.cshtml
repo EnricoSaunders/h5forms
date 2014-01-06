@@ -1,0 +1,29 @@
+﻿@using H5Forms.Dtos.Form.ValidationRules
+@using Microsoft.Ajax.Utilities
+@model H5Forms.Dtos.Form.Controls.FormattedNumber
+@{
+    Layout = null;
+}
+<div>
+    @Html.Label(Model.ColumnName, Model.Label)
+    <div title="@Model.HoverTitle">
+
+        @for (int i = 0; i < Model.Parts.Count -1 ; i++)
+        {
+            var part = Model.Parts[i];
+            @Html.TextBox(Model.ColumnName, part.Value, new { Style = string.Format("width: {0}px", part.Length * 12), maxlength = part.Length })
+          
+            <span>@Model.Separator</span>
+        }
+
+        @{
+            var lasPart = Model.Parts[Model.Parts.Count - 1];
+            @Html.TextBox(Model.ColumnName, lasPart.Value, new { Style = string.Format("width: {0}px", lasPart.Length * 12), maxlength = lasPart.Length })
+        }
+
+        @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
+        {
+            <span class="required">*</span>
+        }
+    </div>
+</div> 

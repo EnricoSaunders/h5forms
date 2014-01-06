@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using H5Forms.Dtos.Form.Controls;
 using Newtonsoft.Json.Linq;
 
@@ -27,6 +28,15 @@ namespace H5Forms.Dtos.Converters
                    break;
                case ControlType.TextBox:
                    result = new TextBox();
+                   break;
+               case ControlType.Email:
+                   result = new Email();
+                   break;
+               case ControlType.Number:
+                   result = new Number();
+                   break;
+               case ControlType.FormattedNumber:
+                   result = new FormattedNumber();
                    break;
            }
 

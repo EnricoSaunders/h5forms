@@ -1,0 +1,10 @@
+﻿@{
+    Layout = null;
+}
+<label>{{control.label}}</label>
+<ul class="formatted-number" ng-attr-title="{{control.title}}">
+    <li ng-repeat="part in control.parts" ng-class="control.optionLayoutType">
+        <input type="text" ng-style="{'width' : part.length * 12 + 'px'}" disabled="disabled" class="form-control" />
+        <span ng-if="control.parts.indexOf(part) < control.parts.length -1 ">{{control.separator}}</span>
+    </li>
+</ul>

@@ -1,8 +1,11 @@
 ﻿namespace H5Forms.Dtos.Form.ValidationRules
 {
-    public enum  ValidationType
+    public enum ValidationType
     {
         Required = 1,
-        Length
+        Length,
+        Number,
+        Email,
+        FormattedNumber,
     }
 }

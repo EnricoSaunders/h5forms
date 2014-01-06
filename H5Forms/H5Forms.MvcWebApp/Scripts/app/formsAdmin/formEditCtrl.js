@@ -23,6 +23,8 @@
                $scope.saveForm = function () {
                    $scope.result.hasErrors = false;
 
+                   $scope.setForm();
+
                    if ($scope.form.id) {
                        formsService.updateForm($scope.form).then(function (response) {
                            
@@ -46,7 +48,43 @@
                        }, function () { throw 'Error on saveForm'; });
                    }                  
                };
-                                                           
+
+               $scope.setForm = function() {
+                   var formattedNumbers = [];                  
+
+                   $scope.form.controls.forEach(function(control) {
+                       if (control.controlType == "FormattedNumber") formattedNumbers.push(control);                       
+                   });
+
+                   for (var j = 0; j < formattedNumbers.length; j++) {
+                       var regEx = "^";
+                       var emptyRegex = "";
+                       var control = formattedNumbers[j];
+
+                       for (var i = 0; i < control.parts.length; i++) {
+                           var part = control.parts[i];
+                           regEx = regEx + "\\d{" + part.length + "}";                          
+
+                           if (control.parts.indexOf(part) < control.parts.length - 1) {
+                               regEx = regEx + control.separator;
+                               emptyRegex = emptyRegex + control.separator;
+                           }
+                       }
+
+                       regEx = regEx + "$";
+                       regEx = regEx + "|^$";
+                       regEx = regEx + "|^" + emptyRegex + "$";
+                       
+
+                       control.validationRules.forEach(function (validator) {
+                           if (validator.validationType == "FormattedNumber") {
+                               validator.regEx = regEx;
+                           }
+                       });
+                   }
+
+               };
+
                //#region Controls
                
                $scope.addControl = function (controlType) {
@@ -92,8 +130,20 @@
                    var index = $scope.currentControl.options.indexOf(option);
                    $scope.currentControl.options.splice(index, 1);
                    
-               };                             
-                             
+               };
+               
+               $scope.addPart = function (index) {                  
+                   $scope.currentControl.parts.splice(index, 0, { length: 1, value: '' });
+               };
+
+               $scope.deletePart = function (part) {
+                   if ($scope.currentControl.parts.length == 1) return;
+
+                   var index = $scope.currentControl.parts.indexOf(part);
+                   $scope.currentControl.parts.splice(index, 1);
+
+               };                                             
+                                           
                $scope.setCurrentControl = function(control) {
                    $scope.currentControl = control;                 
                    $scope.controlPropertiesTemplate = 'FormsAdmin/Properties/' + control.controlType + 'Properties.cshtml';

@@ -20,7 +20,16 @@ namespace H5Forms.MvcWebApp.Models.Binders
                     break;
                 case ValidationType.Required:
                     bindingContext.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Required));
-                    break;               
+                    break;
+                case ValidationType.Email:
+                    bindingContext.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Email));
+                    break;
+                case ValidationType.Number:
+                    bindingContext.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Number));
+                    break;
+                case ValidationType.FormattedNumber:
+                    bindingContext.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, typeof(FormattedNumber));
+                    break;   
             }
 
             return base.BindModel(controllerContext, bindingContext);

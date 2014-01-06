@@ -123,8 +123,17 @@
   <data name="DropDownLabel" xml:space="preserve">
     <value>DropDown label</value>
   </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email label</value>
+  </data>
+  <data name="EmailMessage" xml:space="preserve">
+    <value>Invalid email format for field {0}</value>
+  </data>
   <data name="FirstOption" xml:space="preserve">
     <value>First option</value>
+  </data>
+  <data name="FormattedNumberLabel" xml:space="preserve">
+    <value>Formatted number label</value>
   </data>
   <data name="FreeTextDefaultText" xml:space="preserve">
     <value>Enter a text here</value>
@@ -147,6 +156,12 @@
   <data name="LengthToMessage" xml:space="preserve">
     <value>The field {0} must have a max length of {1}</value>
   </data>
+  <data name="NumberLabel" xml:space="preserve">
+    <value>Number label</value>
+  </data>
+  <data name="NumberMessage" xml:space="preserve">
+    <value>Invalid  format number for field {0}</value>
+  </data>
   <data name="OptionListLabel" xml:space="preserve">
     <value>OptionList label</value>
   </data>
@@ -164,5 +179,8 @@
   </data>
   <data name="ThirdOption" xml:space="preserve">
     <value>Third option</value>
+  </data>
+  <data name="UniqueMessage" xml:space="preserve">
+    <value>The field {0} must be unique and there is another entry with the same value</value>
   </data>
 </root>

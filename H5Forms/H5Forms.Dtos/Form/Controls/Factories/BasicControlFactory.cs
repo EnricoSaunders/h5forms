@@ -42,6 +42,74 @@ namespace H5Forms.Dtos.Form.Controls.Factories
                         }
                     };
                     break;
+                case ControlType.Number:
+                    result = new Number
+                    {
+                        ControlType = ControlType.Number,
+                        Label = Resource.NumberLabel,
+                        Size = 200,
+                        ValidationRules = new List<ValidationRule>
+                        {
+                            new ValidationRules.Required
+                            {
+                                ValidationType = ValidationType.Required,
+                                IsRequired = false                                                              
+                            },
+                            new ValidationRules.Length
+                            {
+                                ValidationType = ValidationType.Length
+                            },
+                            new ValidationRules.Number
+                            {
+                                ValidationType = ValidationType.Number
+                            }
+                        }
+                    };
+                    break;
+                case ControlType.Email:
+                    result = new Email
+                    {
+                        ControlType = ControlType.Number,
+                        Label = Resource.EmailLabel,
+                        Size = 200,
+                        ValidationRules = new List<ValidationRule>
+                        {
+                            new ValidationRules.Required
+                            {
+                                ValidationType = ValidationType.Required,
+                                IsRequired = false                                                              
+                            },
+                            new ValidationRules.Length
+                            {
+                                ValidationType = ValidationType.Length
+                            },
+                            new ValidationRules.Email
+                            {
+                                ValidationType = ValidationType.Email
+                            }
+                        }
+                    };
+                    break;
+                case ControlType.FormattedNumber:
+                    result = new FormattedNumber
+                    {
+                        ControlType = ControlType.FormattedNumber,
+                        Label = Resource.FormattedNumberLabel,   
+                        Separator = FormSettings.DEFAULT_FORMAT_SEPARATOR,
+                        ValidationRules = new List<ValidationRule>
+                        {
+                            new ValidationRules.Required
+                            {
+                                ValidationType = ValidationType.Required,
+                                IsRequired = false                                                              
+                            },                           
+                            new ValidationRules.FormattedNumber
+                            {
+                                ValidationType = ValidationType.FormattedNumber                                                                
+                            }
+                        }
+                    };
+                    break;
                 case ControlType.DropDown:
                     result = new DropDown
                     {

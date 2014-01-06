@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+<div>       
+    <div>
+        <label>Parts</label>
+
+        <ul class="control-options">          
+            <li ng-repeat="part in currentControl.parts">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        Length                      
+                    </span>
+                    <input type="number" min="1" ng-model="part.length" class="form-control" />
+                    <span class="input-group-addon">
+                        <img alt="Add" title="Add" src="@Url.Content("~/Content/images/add.png")" ng-click="addPart($index + 1)" class="cursor" />
+                        <img alt="Remove" title="Remove" src="@Url.Content("~/Content/images/remove.png")" ng-click="deletePart(part)" class="cursor" />
+                    </span>
+                </div>
+            </li>
+        </ul>      
+    </div>
+    
+    @*<div>
+        <label>Parts separator</label>
+        <input type="text" ng-model="currentControl.separator" maxlength="1" style="width: 35px;" class="form-control" />
+    </div>*@
+      
+    <div>
+        <label>Is unique </label><input type="checkbox" ng-model="currentControl.isUnique" />
+    </div>
+</div>

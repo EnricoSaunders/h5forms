@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using H5Forms.Dtos.Form.ValidationRules;
 
 namespace H5Forms.Dtos.Form.Controls
 {
-    public class ValueControl : Control
+    public abstract class ValueControl : Control
     {       
         public string Label { get; set; }
         public string HoverTitle { get; set; }
-        public string Value { get; set; }        
-        public IList<ValidationRule> ValidationRules { get; set; }
+        public string Value { get; set; }
+        public bool IsUnique { get; set; }
+        public IList<ValidationRule> ValidationRules { get; set; }        
         public bool IsValid()
         {
             return !BrokenRules.Any();
@@ -30,5 +32,10 @@ namespace H5Forms.Dtos.Form.Controls
                 return result;
             }
         }
+
+        public abstract void SetValue(string value);
+
+        public abstract string GetFormattedValue();
+
     }
 }

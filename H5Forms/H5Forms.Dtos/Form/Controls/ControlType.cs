@@ -6,6 +6,9 @@
         TextBox,        
         DropDown,
         CheckList,
-        OptionList,        
+        OptionList, 
+        Email,
+        Number,
+        FormattedNumber
     }
 }
