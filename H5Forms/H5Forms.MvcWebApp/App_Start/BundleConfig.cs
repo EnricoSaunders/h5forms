@@ -19,6 +19,9 @@ namespace H5Forms.MvcWebApp
                 .Include("~/Scripts/bootstrap/bootstrap.js")
                 .Include("~/Scripts/jquery.blockUI.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                      "~/Scripts/jquery.validate*"));
+
 
             //bundles.Add(new ScriptBundle("~/bundles/angularJs").Include(
             //            "~/Scripts/AngularJs/angular-{version}.js"));

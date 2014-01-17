@@ -28,6 +28,7 @@ namespace H5Forms.MvcWebApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+          
 
             #region Custom Model Binders
 
