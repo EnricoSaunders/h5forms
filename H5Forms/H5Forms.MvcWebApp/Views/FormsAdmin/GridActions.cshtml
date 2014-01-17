@@ -1,5 +1,6 @@
 ﻿<div class="grid-actions">
     <img alt="Edit" title="Edit" src="@Url.Content("~/Content/images/edit.png")" ng-click="editForm(row.entity.id)" class="cursor" />
-    <a target="_blank" ng-href="{{testBaseUrl + row.entity.hash}}"><img alt="Test" title="Test" src="@Url.Content("~/Content/images/external_link.gif")" class="cursor" /></a>
+    <a target="_blank" ng-href="{{url + row.entity.hash}}"><img alt="Test" title="Test" src="@Url.Content("~/Content/images/external_link.gif")" class="cursor" /></a>
+    <img alt="Links" title="Links" src="@Url.Content("~/Content/images/link.gif")" class="cursor" data-toggle="modal" data-target="#myModal" ng-click="setCurrentLinks(row.entity)" />
     <img alt="Report" title="Report" src="@Url.Content("~/Content/images/report.png")" ng-click="report(row.entity.id)" class="cursor" />
 </div>

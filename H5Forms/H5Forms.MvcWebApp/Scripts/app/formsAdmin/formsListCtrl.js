@@ -5,7 +5,10 @@
            'navigationService',
            function ($scope,  formsService, navigationService) {
                $scope.forms = [];
-               $scope.testBaseUrl = 'http://localhost:50060/FormsTest/test/';
+               $scope.url = location.origin + '/FormsTest/test/';
+               $scope.urlLink;
+               $scope.aLink;
+               $scope.iframe;
                              
                
                $scope.editForm = function (id) {                   
@@ -18,6 +21,14 @@
                
                $scope.report = function (id) {
                    navigationService.goToReport(id);
+               };
+
+               $scope.setCurrentLinks = function (form) {
+                   $scope.urlLink = $scope.url + form.hash;
+
+                   $scope.aLink = '<a  target="_blank" href="' + $scope.urlLink + '" >Complete this form</a>';
+
+                   $scope.iframe = '<iframe    allowTransparency="true"  style="width: 100%; height: 600px; overflow: scroll;"  src="' + $scope.urlLink + '"></iframe>';
                };
                
                //#region Grid

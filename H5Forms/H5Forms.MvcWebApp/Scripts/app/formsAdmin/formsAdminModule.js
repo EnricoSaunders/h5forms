@@ -6,7 +6,8 @@
     'h5Forms.service.navigation',
     'h5Forms.directive.formView',
     'h5Forms.directive.tabs',
-    'h5Forms.directive.loading',     
+    'h5Forms.directive.loading',
+    'h5Forms.filters',
     'ngRoute',
     'ngGrid',
     'ui.sortable'

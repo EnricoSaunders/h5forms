@@ -201,6 +201,7 @@
     <Content Include="Content\images\add.png" />
     <Content Include="Content\images\edit.png" />
     <Content Include="Content\images\external_link.gif" />
+    <Content Include="Content\images\link.gif" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\remove.png" />
     <Content Include="Content\images\report.png" />
@@ -291,6 +292,7 @@
     <Content Include="Scripts\app\formsAdmin\formsListCtrl.js" />
     <Content Include="Scripts\app\formsAdmin\formEditCtrl.js" />
     <Content Include="Scripts\app\formsAdmin\formsAdminModule.js" />
+    <Content Include="Scripts\app\shared\filters.js" />
     <Content Include="Scripts\app\shared\formsService.js" />
     <Content Include="Scripts\app\formsAdmin\formViewDirective.js" />
     <Content Include="Scripts\app\shared\loadingDirective.js" />
