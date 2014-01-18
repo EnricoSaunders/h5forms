@@ -409,6 +409,7 @@
     <Content Include="Views\Shared\Partials\Number.cshtml" />
     <Content Include="Views\Shared\Partials\FormattedNumber.cshtml" />
     <Content Include="Views\FormsAdmin\Properties\formattedNumberProperties.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using H5Forms.Entities;
+﻿using System.Data.Entity;
 
 namespace H5Forms.EfRepository
 {
@@ -9,13 +6,13 @@ namespace H5Forms.EfRepository
     {
         protected override void Seed(H5FormsContext context)
         {
-            var users = new List<User>
-            {
-                new User { Nick = "Test", CreateDate = DateTime.Now, UpdateDate = DateTime.Now}
-            };
+            //var users = new List<User>
+            //{
+            //    new User { Nick = "Test", CreateDate = DateTime.Now, UpdateDate = DateTime.Now}
+            //};
 
-            users.ForEach(u => context.Users.Add(u));
-            context.SaveChanges();
+            //users.ForEach(u => context.Users.Add(u));
+            //context.SaveChanges();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace H5Forms.Dtos.Form.ValidationRules
     {
         public FormattedNumber()
         {
-            RegEx = @"(|^\d{2}-\d{3}-\d{4}$|^$|^---$)";
+            RegEx = @"(^\d{2}-\d{3}-\d{4}$|^$|^---$)";
         }      
 
         public override string Message(Controls.ValueControl control)

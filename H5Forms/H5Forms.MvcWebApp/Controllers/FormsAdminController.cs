@@ -9,9 +9,11 @@ using H5Forms.Dtos.Form.Controls;
 using H5Forms.Dtos.Form.Controls.Factories;
 using H5Forms.Infrastructure;
 using H5Forms.MvcWebApp.Models;
+using Microsoft.AspNet.Identity;
 
 namespace H5Forms.MvcWebApp.Controllers
 {
+    [Authorize]
     public class FormsAdminController : Controller
     {
         #region Properties
@@ -39,7 +41,7 @@ namespace H5Forms.MvcWebApp.Controllers
 
             try
             {
-                response.Data = _formAdmin.GetForms("Test");
+                response.Data = _formAdmin.GetForms(User.Identity.GetUserName());
             }
             catch (Exception)
             {
@@ -75,7 +77,7 @@ namespace H5Forms.MvcWebApp.Controllers
 
             try
             {
-                form.User = new User{Nick = "Test"};
+                form.User = new User { UserName = User.Identity.GetUserName() };
                 _formAdmin.CreateForm(form);
             }
             catch (ValidationException exception)

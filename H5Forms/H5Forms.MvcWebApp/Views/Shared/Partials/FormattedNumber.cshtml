@@ -11,14 +11,14 @@
         @for (int i = 0; i < Model.Parts.Count -1 ; i++)
         {
             var part = Model.Parts[i];
-            @Html.TextBox(Model.ColumnName, part.Value, new { Style = string.Format("width: {0}px", part.Length * 12), maxlength = part.Length })
+            @Html.TextBox(Model.ColumnName, part.Value, new { Style = string.Format("width: {0}px", part.Length * 12), maxlength = part.Length, Class = "form-control" })
           
             <span>@Model.Separator</span>
         }
 
         @{
             var lasPart = Model.Parts[Model.Parts.Count - 1];
-            @Html.TextBox(Model.ColumnName, lasPart.Value, new { Style = string.Format("width: {0}px", lasPart.Length * 12), maxlength = lasPart.Length })
+            @Html.TextBox(Model.ColumnName, lasPart.Value, new { Style = string.Format("width: {0}px", lasPart.Length * 12), maxlength = lasPart.Length, Class = "form-control" })
         }
 
         @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))

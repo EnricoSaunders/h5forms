@@ -8,6 +8,7 @@ using H5Forms.Dtos.Form;
 using H5Forms.Entities.Interfaces;
 using System.Data.Entity;
 using FormEntry = H5Forms.Entities.Form.FormEntry;
+using H5Forms.Entities;
 
 namespace H5Forms.EfRepository
 {
@@ -21,6 +22,7 @@ namespace H5Forms.EfRepository
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().ToTable("AspNetUsers");
         }
         public IDbSet<Entities.Form.Form> Forms{ get; set;}        
         public IDbSet<Entities.User> Users { get; set; }

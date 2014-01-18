@@ -51,7 +51,7 @@ namespace H5Forms.BusinessLogic
                  
         public IList<BasicForm> GetForms(string user)
         {
-            var forms = _h5FormsContext.Forms.Where(f => string.Equals(f.User.Nick, user)).ToList();
+            var forms = _h5FormsContext.Forms.Where(f => string.Equals(f.User.UserName, user)).ToList();
 
             return Mapper.Map<IList<Entities.Form.Form>, IList<BasicForm>>(forms);
         }
@@ -76,7 +76,7 @@ namespace H5Forms.BusinessLogic
 
             var form = new Entities.Form.Form
             {
-                User = _h5FormsContext.Users.Single(u => string.Equals(u.Nick, formDto.User.Nick)),
+                User = _h5FormsContext.Users.Single(u => string.Equals(u.UserName, formDto.User.UserName)),
                 CreateDate = DateTime.Now,
                 UpdateDate = DateTime.Now,
                 Enabled = formDto.Enabled,
@@ -93,7 +93,7 @@ namespace H5Forms.BusinessLogic
 
                 _h5FormsContext.SaveChanges();
 
-                form.Hash = HashHelper.Hash(string.Format("{0}{1}{2}", form.Id, formDto.User.Nick, form.CreateDate)).Replace("/", string.Empty).Replace("+", string.Empty).Replace("=", string.Empty);
+                form.Hash = HashHelper.Hash(string.Format("{0}{1}{2}", form.Id, formDto.User.UserName, form.CreateDate)).Replace("/", string.Empty).Replace("+", string.Empty).Replace("=", string.Empty);
 
                 _h5FormsContext.SaveChanges();
 

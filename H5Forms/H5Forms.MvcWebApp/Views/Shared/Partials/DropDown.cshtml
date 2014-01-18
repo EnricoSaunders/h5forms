@@ -19,7 +19,7 @@
                 {
                     Value = o.Id.ToString(), 
                     Text = o.Value, Selected = string.Equals(Model.Value, o.Id.ToString())
-                })), new{Title = Model.HoverTitle})
+                })), new{Title = Model.HoverTitle, Class="form-control"})
         @if (Model.ValidationRules.Any(v => v.ValidationType == ValidationType.Required && ((Required)v).IsRequired))
         {
             <span class="required">*</span>
